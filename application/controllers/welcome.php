@@ -9,15 +9,15 @@ class Welcome extends CI_Controller {
             $this->language = $helper->load_Lang($langtemp);
             parent::__construct();
             $this->lang->load('welcome',$this->language);
+            $this->lang->load('menu',$this->language);
             $this->load->helper('language');
            
             
         }
 	public function index()
 	{
-                
-                $data['sprawdzam']="ciekawe";
-                $data['test']=lang('test');
+                $data['header'] = "The Colony";
+                $data['footer'] = "Praca Magisterska - Przemysław Piekarski - Politechnika Łódzka";
 		$this->load->view("welcome_view",$data);
 	}
 }
