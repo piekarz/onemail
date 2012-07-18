@@ -18,7 +18,6 @@ class Welcome extends CI_Controller {
 	{
                 $data['header'] = "The Colony";
                 $data['footer'] = "Praca Magisterska - Przemysław Piekarski - Politechnika Łódzka";
-                $data['test'] = "<?php echo 'cosik';?>";
 		$this->load->view("welcome_view",$data);
 	}
 }
