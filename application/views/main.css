@@ -4,6 +4,7 @@
 body {
  font-family: Arial, Helvetica, sans-serif;
  font-size: 13px;
+ background-image: url('/mgr/application/views/images/back.jpg');
 }
 #wrapper { 
  margin: 0 auto;
@@ -31,8 +32,8 @@ body {
  background-image: url('/mgr/application/views/images/nav.png');
 }
 #rightcolumn { 
- color: #333;
- background: #e28252;
+ color: #9f653a;
+ background: black url('/mgr/application/views/images/back2.jpg');
  padding: 10px;
  margin: 0px;
 }
