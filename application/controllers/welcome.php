@@ -10,7 +10,6 @@ class Welcome extends CI_Controller {
             parent::__construct();
             $this->lang->load('welcome',$this->language);
             $this->lang->load('menu',$this->language);
-            $this->load->helper('language');
            
             
         }
