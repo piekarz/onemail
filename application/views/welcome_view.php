@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<title><?php echo $header;?></title>
+<title><?php echo $header; $ajax = ajax();?></title>
 <link rel="stylesheet" type="text/css" href="/mgr/application/views/main.css" />
 </head>
 
@@ -31,7 +31,7 @@
 		 
 		       <!-- Begin Right Column -->
 		       <div id="rightcolumn">
-		 
+                           
 
 	<div class="clear"></div>
 				
@@ -44,7 +44,7 @@
          <!-- Begin Footer -->
          <div id="footer">
 		       
-               <?php echo $footer; ?>		
+               <?php echo lang("global_footer") ?>		
 
          </div>
 		 <!-- End Footer -->
