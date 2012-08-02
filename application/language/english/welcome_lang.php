@@ -1,8 +1,2 @@
 <?php
-
-/*
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
- */
-$language['test']="To jest wielki test ładowania języka!";
-?>
+$lang['hello']="Welcome on mainpage! Register or login for play in The Colony!";

@@ -3,23 +3,19 @@
 class Welcome extends CI_Controller {
         var $language;
         public function __construct() {
-           // require_once "/application/helpers/Method_helper.php";
-           // $helper = new Method_helper();
             $langtemp = substr($_SERVER['HTTP_ACCEPT_LANGUAGE'], 0, 2);
-           // $this->language = $helper->load_Lang($langtemp);
-            
             parent::__construct();
             $this->language = loadLang($langtemp);
             $this->lang->load('welcome',$this->language);
             $this->lang->load('menu',$this->language);
             $this->lang->load('global',$this->language);
+            $this->load->model('User_model');
             $this->load->file('ajaxfw.php');
-            
-           
-            
+            $this->session->set_userdata(getsessiondata());
         }
 	public function index()
 	{
+                //$this->User_model->insert_user('test','hastpassworda','email@email.com','en','123123123123','1','127.0.0.1');
                 $data['header'] = lang("global_header");
 		$this->load->view("welcome_view",$data);
 	}

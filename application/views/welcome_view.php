@@ -28,11 +28,9 @@
          <!-- Begin Faux Columns -->
 		 <div id="faux">
 		
-		 
 		       <!-- Begin Right Column -->
 		       <div id="rightcolumn">
-                           
-
+                           <?php echo lang("hello") ?>
 	<div class="clear"></div>
 				
 		       </div>
