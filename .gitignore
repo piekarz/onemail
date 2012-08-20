@@ -6,3 +6,4 @@
 *.psd
 piekarz
 *.pub
+/nbproject/private/
