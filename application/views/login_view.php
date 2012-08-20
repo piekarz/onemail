@@ -1,38 +1,38 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml">
-<head>
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<title><?php echo $header; $ajax = ajax();?></title>
-<link rel="stylesheet" type="text/css" href="/mgr/application/views/main.css" />
-</head>
+<!doctype html>
 
-<body>
+
+<meta charset=utf-8>
+<title><?php echo $header;?></title>
+<link rel=stylesheet type=text/css href=/mgr/application/views/main.css />
+
+
+
 
    <!-- Begin Wrapper -->
    <div id="wrapper">
    
-         <!-- Begin Header -->
-         <div id="header">
+         <!-- Begin header -->
+         <div id=header>
 		 		 
 			   
 		 </div>
-		 <!-- End Header -->
+		 <!-- end header -->
 		 
 		 <!-- Begin Navigation -->
          <div id="navigation">
                 <?php require_once('/application/views/menu.php'); ?>
 			   
            </div>
-        <!-- End navigation -->
+        <!-- end navigation -->
 		 
-         <!-- Begin Faux Columns -->
-		 <div id="faux">
+         <!-- Begin faux columns -->
+		 <div id=faux>
 		
-		       <!-- Begin Right Column -->
+		       <!-- Begin right column -->
 		       <div id="rightcolumn">
                            <?php echo $baddata; ?>
-                           <br />
-                           <table><tr><td><?php echo lang("loginn"); ?></td><td>
+                           <Br />
+                           <taBle><tr><td><?php echo lang("loginn"); ?><td>
                            <?php echo form_open('login/send'); 
                            $data = array(
                               'name'        => 'login',
@@ -41,8 +41,8 @@
                               'size'        => '25',
                               'style'       => 'width:150px',
                             );
-                           echo form_input($data); ?></td></tr>
-                           <tr><td><?php echo lang("password"); ?> </td> <td>
+                           echo form_input($data); ?></td>
+                           <tr><td><?php echo lang("password"); ?>  <td>
                            <?php
                            $data = array(
                               'name'        => 'password',
@@ -58,23 +58,23 @@
                            echo form_submit('submit',lang("login"));
                            echo form_close();
                            ?>
-	<div class="clear"></div>
+	<div claSs="clear"></div>
 				
 		       </div>
-		       <!-- End Right Column -->
+		       <!-- end right column -->
 			   
          </div>	   
-         <!-- End Faux Columns --> 
+         <!-- end faux columns --> 
 
-         <!-- Begin Footer -->
+         <!-- Begin footer -->
          <div id="footer">
 		       
                <?php echo lang("global_footer") ?>		
 
          </div>
-		 <!-- End Footer -->
+		 <!-- end footer -->
 		 
    </div>
-   <!-- End Wrapper -->
-</body>
-</html>
+   <!-- end Wrapper -->
+
+
