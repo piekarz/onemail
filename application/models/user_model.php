@@ -31,7 +31,7 @@ class User_model extends CI_Model {
      */
     function get_last_ten_users()
     {
-        $query = $this->db->get('user', 5);
+        $query = $this->db->get('user', 10);
         return $query->result();
     }
     /*
@@ -71,7 +71,19 @@ class User_model extends CI_Model {
         //Update
         $this->db->update('user', $this, $iduser);
     }
-    function getonequery($query){
+    /**
+     * This method check if user exist in db with that $login and hash $password
+     * @param type $login
+     * @param type $password 
+     */
+    function check_user($login, $password){
+        $this->db->where(array('login'=>$login, 'password'=>$password));
+        $query = $this->db->get('user');
+        if ( count($query->result()) == 1) return true; 
+        return false; 
+    }
+    
+        function getonequery($query){
             foreach($query->result() as $q){
             $this->iduser = $q->iduser;
             break;

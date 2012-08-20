@@ -23,3 +23,14 @@ if ( ! function_exists('loadLang'))
 	}
 }
 
+if ( ! function_exists('sessionDataAdd')){
+    
+    function sessionDataAdd($session){
+        $newdata = array(
+                   'username'  => '',
+                   'logged_in' => FALSE
+               );
+        $session->set_userdata($newdata);
+    }
+}
+

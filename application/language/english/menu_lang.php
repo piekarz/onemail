@@ -22,6 +22,10 @@ $lang['mainpage']           ="Mainpage";
 $lang['guide']              ="Guide";
 $lang['contact']            ="Contact";
 $lang['faq']                ="FAQ";
+//login
+$lang['loginn']             ="Login";
+$lang['password']           ="Password";
+$lang['baddata']            ="You put incorrect login data!";
 /*
  * To change this template, choose Tools | Templates
  * and open the template in the editor.

@@ -11,7 +11,7 @@ class Welcome extends CI_Controller {
             $this->lang->load('global',$this->language);
             $this->load->model('User_model');
             $this->load->file('ajaxfw.php');
-            $this->session->set_userdata(getsessiondata());
+            if(isset($_SESSION['username'])) sessionDataAdd($this->session);
         }
 	public function index()
 	{
