@@ -4,7 +4,7 @@
 body {
  font-family: Arial, Helvetica, sans-serif;
  font-size: 13px;
- background-image: url('/mgr/application/views/images/back.jpg');
+ background-image: url(/mgr/application/views/images/back.jpg);
 }
 #wrapper { 
  margin: 0 auto;
@@ -13,7 +13,7 @@ body {
  border-width:0px;
  border-color:black;
  box-shadow: 0px 0px 3px 3px #9c4d0d;
- background: black url('/mgr/application/views/images/back2.jpg') repeat;
+ background: black url(/mgr/application/views/images/back2.jpg) repeat;
 }
 #faux {
  background: url(faux-2-2-col.gif);
@@ -27,7 +27,7 @@ body {
  padding: 10px;
  height: 180px;
  margin: 10px 0px 0px 0px;
- background-image: url('/mgr/application/views/images/header.png');
+ background-image: url(/mgr/application/views/images/header.png);
  
 }
 #navigation {
@@ -35,7 +35,7 @@ body {
  padding: 5px;
  height: 70px;
  margin: 0px 0px 0px 0px;
- background-image: url('/mgr/application/views/images/nav.png');
+ background-image: url(/mgr/application/views/images/nav.png);
 }
 #rightcolumn { 
  color: #9f653a;
@@ -46,7 +46,7 @@ body {
  width: 902px;
  text-align: center;
  color: #9f653a;
- background: url('/mgr/application/views/images/foot.png');
+ background: url(/mgr/application/views/images/foot.png);
  margin: 0px 0px 10px 0px;
  padding: 10px;
 }
@@ -61,9 +61,9 @@ body {
 #cssmenu ul li.has-sub:hover > a:after{top:0; bottom:0;} 
 #cssmenu > ul > li.has-sub > a:before{ content:''; position:absolute; top:18px; right:6px; border:5px solid transparent; border-top:5px solid #fff; } 
 #cssmenu > ul > li.has-sub:hover > a:before{top:19px;} 
-#cssmenu ul li.has-sub:hover > a{ background:url('/mgr/application/views/images/menub.png'); padding-bottom:13px; padding-top:13px; top:-1px; z-index:999; } 
+#cssmenu ul li.has-sub:hover > a{ background:url(/mgr/application/views/images/menub.png); padding-bottom:13px; padding-top:13px; top:-1px; z-index:999; } 
 #cssmenu ul li.has-sub:hover > ul, #cssmenu ul li.has-sub:hover > div{display:block;} 
-#cssmenu ul li.has-sub > a:hover{background:url('/mgr/application/views/images/menub.png');} 
+#cssmenu ul li.has-sub > a:hover{background:url(/mgr/application/views/images/menub.png);} 
 #cssmenu ul li > ul, #cssmenu ul li > div{ display:none; width:auto; position:absolute; top:38px; padding:10px 0; background:url('/mgr/application/views/images/menub.png'); border-radius:0 0 5px 5px; z-index:999; } 
 #cssmenu ul li > ul{width:200px;} 
 #cssmenu ul li > ul li{display:block; list-style:inside none; padding:0; margin:0; position:relative;} 

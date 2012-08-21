@@ -9,6 +9,7 @@ class Login extends CI_Controller {
             $this->language = loadLang($langtemp);
             $this->lang->load('welcome',$this->language);
             $this->lang->load('menu',$this->language);
+            $this->lang->load('login',$this->language);
             $this->lang->load('global',$this->language);
             $this->load->model('User_model');
             $this->load->file('ajaxfw.php');

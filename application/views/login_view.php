@@ -1,81 +1,85 @@
-<!doctype html>
-<html>
+<!DOCTYPE html>
+<!--[if lt IE 7 ]> <html lang="en" class="no-js ie6 lt8"> <![endif]-->
+<!--[if IE 7 ]>    <html lang="en" class="no-js ie7 lt8"> <![endif]-->
+<!--[if IE 8 ]>    <html lang="en" class="no-js ie8 lt8"> <![endif]-->
+<!--[if IE 9 ]>    <html lang="en" class="no-js ie9"> <![endif]-->
+<!--[if (gt IE 9)|!(IE)]><!--> 
+<html class="no-js"> <!--<![endif]-->
     <head>
-        <meta charset="utf-8" />
+        <meta charset="UTF-8" />
+        <!-- <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">  -->
         <title><?php echo $header;?></title>
-        <link rel="stylesheet" type="text/css" href="/mgr/application/views/main.css" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
+        <meta name="author" content="Codrops" />
+        <link rel="stylesheet" type="text/css" href="<?php echo base_url("application/views/css/main.css");?>" />
+        <link rel="stylesheet" type="text/css" href="<?php echo base_url("application/views/css/demo.css");?>" />
+        <link rel="stylesheet" type="text/css" href="<?php echo base_url("application/views/css/style.css");?>" />
+	<link rel="stylesheet" type="text/css" href="<?php echo base_url("application/views/css/animate-custom.css");?>" />
     </head>
-
     <body>
+        <div class="container">
+            
+            <section>				
+                <div id="container_demo" >
+                    <div id="navigation2">
+                        <div id="menulg"><?php require_once('/application/views/menu.php'); ?></div>
+                    </div>
+                    <a class="hiddenanchor" id="toregister"></a>
+                    <a class="hiddenanchor" id="tologin"></a>
+                    <div id="wrapper">
+                        <div id="login" class="animate form">
+                            <form  action="mysuperscript.php" method="post" autocomplete="on"> 
+                                <h1><?php echo lang("log_in"); ?></h1> 
+                                <p> 
+                                    <label for="username" class="uname" data-icon="u" > <?php echo lang("loglogin"); ?> </label>
+                                    <input id="username" name="username" required="required" type="text" placeholder="myusername"/>
+                                </p>
+                                <p> 
+                                    <label for="password" class="youpasswd" data-icon="p"> <?php echo lang("password"); ?> </label>
+                                    <input id="password" name="password" required="required" type="password" placeholder="somepassword" /> 
+                                </p>
+                                <p class="login button"> 
+                                    <input type="submit" value="<?php echo lang("login"); ?>" /> 
+								</p>
+                                <p class="change_link">
+                                    <?php echo lang("nohave_acc"); ?>
+                                    <a href="#toregister" class="to_register"><?php echo lang("createacc"); ?></a>
+				</p>
+                            </form>
+                        </div>
 
-       <!-- Begin Wrapper -->
-       <div id="wrapper">
-
-             <!-- Begin header -->
-             <div id=header>
-
-
-                     </div>
-                     <!-- end header -->
-
-                     <!-- Begin Navigation -->
-             <div id="navigation">
-                    <?php require_once('/application/views/menu.php'); ?>
-
-               </div>
-            <!-- end navigation -->
-
-             <!-- Begin faux columns -->
-                     <div id=faux>
-
-                           <!-- Begin right column -->
-                           <div id="rightcolumn">
-                               <?php echo $baddata; ?>
-                               <Br />
-                               <taBle><tr><td><?php echo lang("loginn"); ?><td>
-                               <?php echo form_open('login/send'); 
-                               $data = array(
-                                  'name'        => 'login',
-                                  'id'          => 'login',
-                                  'maxlength'   => '45',
-                                  'size'        => '25',
-                                  'style'       => 'width:150px',
-                                );
-                               echo form_input($data); ?></td>
-                               <tr><td><?php echo lang("password"); ?>  <td>
-                               <?php
-                               $data = array(
-                                  'name'        => 'password',
-                                  'id'          => 'password',
-                                  'maxlength'   => '100',
-                                  'size'        => '25',
-                                  'style'       => 'width:150px',
-                                );
-                               echo form_password($data);
-                               ?>
-                                   </td></tr></table><br />
-                               <?php
-                               echo form_submit('submit',lang("login"));
-                               echo form_close();
-                               ?>
-            <div claSs="clear"></div>
-
-                           </div>
-                           <!-- end right column -->
-
-             </div>	   
-             <!-- end faux columns --> 
-
-             <!-- Begin footer -->
-             <div id="footer">
-
-                   <?php echo lang("global_footer") ?>		
-
-             </div>
-                     <!-- end footer -->
-
-       </div>
-       <!-- end Wrapper -->
+                        <div id="register" class="animate form">
+                            <form  action="mysuperscript.php" method="post" autocomplete="on"> 
+                                <h1> <?php echo lang("r_register"); ?> </h1> 
+                                <p> 
+                                    <label for="usernamesignup" class="uname" data-icon="u"><?php echo lang("username"); ?></label>
+                                    <input id="usernamesignup" name="usernamesignup" required="required" type="text" placeholder="mysuperusername690" />
+                                </p>
+                                <p> 
+                                    <label for="emailsignup" class="youmail" data-icon="e" ><?php echo lang("email"); ?></label>
+                                    <input id="emailsignup" name="emailsignup" required="required" type="email" placeholder="mysupermail@mail.com"/> 
+                                </p>
+                                <p> 
+                                    <label for="passwordsignup" class="youpasswd" data-icon="p"><?php echo lang("password"); ?></label>
+                                    <input id="passwordsignup" name="passwordsignup" required="required" type="password" placeholder="eg. X8df!90EO"/>
+                                </p>
+                                <p> 
+                                    <label for="passwordsignup_confirm" class="youpasswd" data-icon="p"><?php echo lang("repassword"); ?></label>
+                                    <input id="passwordsignup_confirm" name="passwordsignup_confirm" required="required" type="password" placeholder="eg. X8df!90EO"/>
+                                </p>
+                                <p class="signin button"> 
+									<input type="submit" value="<?php echo lang("register"); ?>"/> 
+								</p>
+                                <p class="change_link">  
+									<?php echo lang("have_acc"); ?>
+									<a href="#tologin" class="to_register"> <?php echo lang("login"); ?> </a>
+								</p>
+                            </form>
+                        </div>
+						
+                    </div>
+                </div>  
+            </section>
+        </div>
     </body>
-
 </html>

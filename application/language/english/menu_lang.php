@@ -1,6 +1,6 @@
 <?php
 
-//Login menu:
+//Menu:
 $lang['colony']             ="Colony";
 $lang['colonies']           ="Colonies";
 $lang['overview']           ="Overview";
@@ -22,11 +22,3 @@ $lang['mainpage']           ="Mainpage";
 $lang['guide']              ="Guide";
 $lang['contact']            ="Contact";
 $lang['faq']                ="FAQ";
-//login
-$lang['loginn']             ="Login";
-$lang['password']           ="Password";
-$lang['baddata']            ="You put incorrect login data!";
-/*
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
- */

@@ -3,7 +3,7 @@
     <head>
         <meta charset="utf-8" />
         <title><?php echo $header;?></title>
-        <link rel="stylesheet" type="text/css" href="/mgr/application/views/main.css" />
+        <link rel="stylesheet" type="text/css" href="<?php echo base_url("application/views/css/main.css");?>" />
     </head>
 
 
