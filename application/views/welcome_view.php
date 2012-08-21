@@ -1,51 +1,53 @@
 <!DOCTYpE html>
-<meta charset=UTF-8>
-<title><?php echo $header;?></title>
-<link rel=stylesheet type=text/css href=/mgr/application/views/main.css />
+<html>
+    <head>
+        <meta charset="utf-8" />
+        <title><?php echo $header;?></title>
+        <link rel="stylesheet" type="text/css" href="/mgr/application/views/main.css" />
+    </head>
 
 
+    <body>
+       <!-- Begin Wrapper -->
+       <div id=wrapper>
+
+             <!-- Begin header -->
+             <div id=header>
 
 
-   <!-- Begin Wrapper -->
-   <div id=wrapper>
-   
-         <!-- Begin header -->
-         <div id=header>
-		 		 
-			   
-		 </div>
-		 <!-- End header -->
-		 
-		 <!-- Begin Navigation -->
-         <div id="navigation">
-                <?php require_once('/application/views/menu.php'); ?>
-			   
-           </div>
-        <!-- End navigation -->
-		 
-         <!-- Begin Faux Columns -->
-		 <div id="faux">
-		
-		       <!-- Begin Right Column -->
-		       <div id="rightcolumn">
-                           <?php echo lang("hello") ?>
-	<div class="clear"></div>
-				
-		       </div>
-		       <!-- End Right Column -->
-			   
-         </div>	   
-         <!-- End Faux Columns --> 
+                     </div>
+                     <!-- End header -->
 
-         <!-- Begin Footer -->
-         <div id=footer>
-		       
-               <?php echo lang("global_footer") ?>		
+                     <!-- Begin Navigation -->
+             <div id="navigation">
+                    <?php require_once('/application/views/menu.php'); ?>
 
-         </div>
-		 <!-- End Footer -->
-		 
-   </div>
-   <!-- End Wrapper -->
+               </div>
+            <!-- End navigation -->
 
+             <!-- Begin Faux Columns -->
+                     <div id="faux">
 
+                           <!-- Begin Right Column -->
+                           <div id="rightcolumn">
+                               <?php echo lang("hello") ?>
+            <div class="clear"></div>
+
+                           </div>
+                           <!-- End Right Column -->
+
+             </div>	   
+             <!-- End Faux Columns --> 
+
+             <!-- Begin Footer -->
+             <div id=footer>
+
+                   <?php echo lang("global_footer") ?>		
+
+             </div>
+                     <!-- End Footer -->
+
+       </div>
+       <!-- End Wrapper -->
+    </body>
+</html>
