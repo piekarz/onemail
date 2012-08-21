@@ -28,8 +28,9 @@
                     <a class="hiddenanchor" id="tologin"></a>
                     <div id="wrapper">
                         <div id="login" class="animate form">
-                            <form  action="mysuperscript.php" method="post" autocomplete="on"> 
-                                <h1><?php echo lang("log_in"); ?></h1> 
+                            <form  action="<?php echo base_url('login/send'); ?>" method="post" autocomplete="on"> 
+                                <h1><?php echo lang("log_in"); ?></h1>
+                                <h2><?php echo $baddata; ?></h2>
                                 <p> 
                                     <label for="username" class="uname" data-icon="u" > <?php echo lang("loglogin"); ?> </label>
                                     <input id="username" name="username" required="required" type="text" placeholder="myusername"/>
@@ -68,12 +69,12 @@
                                     <input id="passwordsignup_confirm" name="passwordsignup_confirm" required="required" type="password" placeholder="eg. X8df!90EO"/>
                                 </p>
                                 <p class="signin button"> 
-									<input type="submit" value="<?php echo lang("register"); ?>"/> 
-								</p>
+                                        <input type="submit" value="<?php echo lang("register"); ?>"/> 
+                                </p>
                                 <p class="change_link">  
-									<?php echo lang("have_acc"); ?>
-									<a href="#tologin" class="to_register"> <?php echo lang("login"); ?> </a>
-								</p>
+                                        <?php echo lang("have_acc"); ?>
+                                        <a href="#tologin" class="to_register"> <?php echo lang("login"); ?> </a>
+                                </p>
                             </form>
                         </div>
 						

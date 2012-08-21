@@ -31,8 +31,8 @@ class Login extends CI_Controller {
         public function send()
         {
             if($this->session->userdata('logged_in')) redirect(base_url());
-            if($this->User_model->check_user($_POST['login'],  sha1($_POST['password']) )){ 
-                $this->session->set_userdata('username', $_POST['login']);
+            if($this->User_model->check_user($_POST['username'],  sha1($_POST['password']) )){ 
+                $this->session->set_userdata('username', $_POST['username']);
                 $this->session->set_userdata('logged_in',TRUE);
                 redirect(base_url());
             }else{

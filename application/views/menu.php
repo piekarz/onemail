@@ -53,7 +53,7 @@
 <div id='cssmenu'>
             <ul>
                 <li><a href='<?php echo base_url("welcome") ?>'><span><?php echo lang("mainpage") ?></span></a></li>
-                <li><a href='<?php echo base_url("welcome/register") ?>'><span><?php echo lang("register") ?></span></a></li>
+                <li><a href='<?php echo base_url("login#toregister") ?>'><span><?php echo lang("register") ?></span></a></li>
                 <li><a href='<?php echo base_url("login") ?>'><span><?php echo lang("login") ?></span></a>
                 <li class='has-sub '><a href='#'><span><?php echo lang("about") ?></span></a>
                   <ul>

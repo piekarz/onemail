@@ -9,7 +9,7 @@
 
     <body>
        <!-- Begin Wrapper -->
-       <div id=wrapper>
+       <div id=wrapper1>
 
              <!-- Begin header -->
              <div id=header>

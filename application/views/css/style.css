@@ -60,7 +60,6 @@ a.hiddenanchor{
 /** For the moment only webkit supports the background-clip:text; */
 #wrapper h1{
     background: -webkit-repeating-linear-gradient(-45deg, 
-	
         rgb(112, 55, 18) ,
 	rgb(112, 55, 18) 20px, 
 	rgb(158, 83, 43) 20px, 
@@ -82,7 +81,14 @@ a.hiddenanchor{
 	background: -ms-linear-gradient(left, rgba(197,117,69,0) 0%,rgba(197,117,69,0.8) 20%,rgba(197,117,69,1) 53%,rgba(197,117,69,0.8) 79%,rgba(197,117,69,0) 100%); 
 	background: linear-gradient(left, rgba(197,117,69,0) 0%,rgba(197,117,69,0.8) 20%,rgba(197,117,69,1) 53%,rgba(197,117,69,0.8) 79%,rgba(197,117,69,0) 100%); 
 }
-
+#wrapper h2{
+        font-size: 18px;
+	color: #950c0c;
+	padding: 2px 0 10px 0;
+	font-family: 'Arial Narrow',Arial,sans-serif;
+	font-weight: bold;
+	text-align: center;
+}
 #wrapper p{
 	margin-bottom:15px;
 }
@@ -135,9 +141,9 @@ input {
 #wrapper input:not([type="checkbox"]):focus{
 	border: 1px solid rgba(91, 90, 90, 0.7);
 	background: rgba(220, 114, 1, 0.5);	
-	-webkit-box-shadow: 0px 1px 4px 0px rgba(168, 168, 168, 0.9) inset;
-	   -moz-box-shadow: 0px 1px 4px 0px rgba(168, 168, 168, 0.9) inset;
-	        box-shadow: 0px 1px 4px 0px rgba(168, 168, 168, 0.9) inset;
+	-webkit-box-shadow: 0px 1px 4px 0px rgba(156, 77, 13, 0.9) inset;
+	   -moz-box-shadow: 0px 1px 4px 0px rgba(156, 77, 13, 0.9) inset;
+	        box-shadow: 0px 1px 4px 0px rgba(156, 77, 13, 0.9) inset;
 } 
 
 /** the magic icon trick ! **/
@@ -163,35 +169,28 @@ input {
 	border: 1px solid rgb(136, 71, 35);	
 	margin-bottom: 10px;	
 	text-shadow: 0 1px 1px rgba(0, 0, 0, 0.5);
-	-webkit-border-radius: 3px;
-	   -moz-border-radius: 3px;
-	        border-radius: 3px;	
-	-webkit-box-shadow: 0px 1px 6px 4px rgba(0, 0, 0, 0.07) inset,
-	        0px 0px 0px 3px rgb(254, 254, 254),
-	        0px 5px 3px 3px rgb(210, 210, 210);
-	   -moz-box-shadow:0px 1px 6px 4px rgba(0, 0, 0, 0.07) inset,
-	        0px 0px 0px 3px rgb(254, 254, 254),
-	        0px 5px 3px 3px rgb(210, 210, 210);
-	        box-shadow:0px 1px 6px 4px rgba(0, 0, 0, 0.07) inset,
-	        0px 0px 0px 3px rgb(254, 254, 254),
-	        0px 5px 3px 3px rgb(210, 210, 210);
-	-webkit-transition: all 0.2s linear;
-	   -moz-transition: all 0.2s linear;
-	     -o-transition: all 0.2s linear;
-	        transition: all 0.2s linear;
+	-webkit-border-radius: 4px;
+	-moz-border-radius: 4px;
+	border-radius: 4px;
+	border: 2px solid rgb(112, 55, 5);
+	-webkit-transition: all 0.4s linear;
+	-moz-transition: all 0.4s  linear;
+	-o-transition: all 0.4s linear;
+	-ms-transition: all 0.4s  linear;
+	transition: all 0.4s  linear;
 }
 #wrapper p.button input:hover{
-	background: rgb(240, 100, 65);
+	background: transparent;
 }
 #wrapper p.button input:active,
 #wrapper p.button input:focus{
 	background: rgb(204, 88, 25);
 	position: relative;
 	top: 1px;
-	border: 1px solid rgb(12, 76, 87);	
-	-webkit-box-shadow: 0px 1px 6px 4px rgba(0, 0, 0, 0.2) inset;
-	   -moz-box-shadow: 0px 1px 6px 4px rgba(0, 0, 0, 0.2) inset;
-	        box-shadow: 0px 1px 6px 4px rgba(0, 0, 0, 0.2) inset;
+	border: 1px solid rgb(112, 55, 5);	
+	-webkit-box-shadow: 0px 1px 6px 4px rgba(156, 77, 13, 0.2) inset;
+	   -moz-box-shadow: 0px 1px 6px 4px rgba(156, 77, 13, 0.2) inset;
+	        box-shadow: 0px 1px 6px 4px rgba(156, 77, 13, 0.2) inset;
 }
 p.login.button,
 p.signin.button{
@@ -229,19 +228,13 @@ p.change_link{
 	padding: 17px 30px 20px 30px;
 	font-size: 16px	;
 	text-align: right;
-	border-top: 1px solid rgb(219, 229, 232);
-	-webkit-border-radius: 0 0  5px 5px;
-	   -moz-border-radius: 0 0  5px 5px;
-	        border-radius: 0 0  5px 5px;
-	background: black url(/mgr/application/views/images/back2.jpg) repeat;
 	
 }
 #navigation2 {
  color: #9f653a;
  padding: 5px;
  height: 70px;
- margin: 0px 0px 0px 0px;
- background-image: url(/mgr/application/views/images/nav.png);
+ background: url(/mgr/application/views/images/nav.png) repeat;
 }
 #menulg{
         width: 60%;
@@ -253,15 +246,15 @@ p.change_link{
 #wrapper p.change_link a {
 	display: inline-block;
 	font-weight: bold;
-	background: rgb(247, 248, 241);
-	padding: 2px 6px;
-	color: rgb(29, 162, 193);
+	background:rgb(204, 88, 25); 
+        padding: 2px 6px;
+	color: rgb(212, 212, 212);
 	margin-left: 10px;
 	text-decoration: none;
 	-webkit-border-radius: 4px;
 	-moz-border-radius: 4px;
 	border-radius: 4px;
-	border: 1px solid rgb(203, 213, 214);
+	border: 1px solid rgb(112, 55, 5);
 	-webkit-transition: all 0.4s linear;
 	-moz-transition: all 0.4s  linear;
 	-o-transition: all 0.4s linear;
@@ -269,9 +262,8 @@ p.change_link{
 	transition: all 0.4s  linear;
 }
 #wrapper p.change_link a:hover {
-	color: rgb(57, 191, 215);
-	background: rgb(247, 247, 247);
-	border: 1px solid rgb(74, 179, 198);
+	background: transparent;
+	border: 1px solid rgb(112, 55, 5);
 }
 #wrapper p.change_link a:active{
 	position: relative;
@@ -286,10 +278,10 @@ p.change_link{
 	padding: 18px 6% 60px 6%;
 	margin: 0 0 35px 0;
 	background: black url(/mgr/application/views/images/back2.jpg) repeat;
-	border: 1px solid rgba(147, 184, 189,0.8);
-	-webkit-box-shadow: 0pt 2px 5px rgba(105, 108, 109,  0.7),	0px 0px 8px 5px rgba(208, 223, 226, 0.4) inset;
-	   -moz-box-shadow: 0pt 2px 5px rgba(105, 108, 109,  0.7),	0px 0px 8px 5px rgba(208, 223, 226, 0.4) inset;
-	        box-shadow: 0pt 2px 5px rgba(105, 108, 109,  0.7),	0px 0px 8px 5px rgba(208, 223, 226, 0.4) inset;
+	border: 1px solid rgba(156, 77, 13,0.8);
+	-webkit-box-shadow: 0pt 2px 5px rgba(156, 77, 13,  0.7),	0px 0px 8px 5px rgba(221, 109, 44, 0.4) inset;
+	   -moz-box-shadow: 0pt 2px 5px rgba(156, 77, 13,  0.7),	0px 0px 8px 5px rgba(221, 109, 44, 0.4) inset;
+	        box-shadow: 0pt 2px 5px rgba(156, 77, 13,  0.7),	0px 0px 8px 5px rgba(221, 109, 44, 0.4) inset;
 	-webkit-box-shadow: 5px;
 	-moz-border-radius: 5px;
 		 border-radius: 5px;
