@@ -33,7 +33,7 @@
                                 <h2><?php echo $baddata; ?></h2>
                                 <p> 
                                     <label for="username" class="uname" data-icon="u" > <?php echo lang("loglogin"); ?> </label>
-                                    <input id="username" name="username" required="required" type="text" placeholder="myusername"/>
+                                    <input id="username" name="username" required="required" type="text" placeholder="yourusername"/>
                                 </p>
                                 <p> 
                                     <label for="password" class="youpasswd" data-icon="p"> <?php echo lang("password"); ?> </label>
@@ -54,19 +54,19 @@
                                 <h1> <?php echo lang("r_register"); ?> </h1> 
                                 <p> 
                                     <label for="usernamesignup" class="uname" data-icon="u"><?php echo lang("username"); ?></label>
-                                    <input id="usernamesignup" name="usernamesignup" required="required" type="text" placeholder="mysuperusername690" />
+                                    <input id="usernamesignup" name="usernamesignup" required="required" type="text" placeholder="yourusername" />
                                 </p>
                                 <p> 
                                     <label for="emailsignup" class="youmail" data-icon="e" ><?php echo lang("email"); ?></label>
-                                    <input id="emailsignup" name="emailsignup" required="required" type="email" placeholder="mysupermail@mail.com"/> 
+                                    <input id="emailsignup" name="emailsignup" required="required" type="email" placeholder="yourmail@email.com"/> 
                                 </p>
                                 <p> 
                                     <label for="passwordsignup" class="youpasswd" data-icon="p"><?php echo lang("password"); ?></label>
-                                    <input id="passwordsignup" name="passwordsignup" required="required" type="password" placeholder="eg. X8df!90EO"/>
+                                    <input id="passwordsignup" name="passwordsignup" required="required" type="password" placeholder="password"/>
                                 </p>
                                 <p> 
                                     <label for="passwordsignup_confirm" class="youpasswd" data-icon="p"><?php echo lang("repassword"); ?></label>
-                                    <input id="passwordsignup_confirm" name="passwordsignup_confirm" required="required" type="password" placeholder="eg. X8df!90EO"/>
+                                    <input id="passwordsignup_confirm" name="passwordsignup_confirm" required="required" type="password" placeholder="password"/>
                                 </p>
                                 <p class="signin button"> 
                                         <input type="submit" value="<?php echo lang("register"); ?>"/> 

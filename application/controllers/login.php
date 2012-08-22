@@ -22,7 +22,8 @@ class Login extends CI_Controller {
          */
         public function index()
 	{
-            if($this->session->userdata('logged_in')) redirect(base_url());
+            //If user is loggedin redirect
+            if($this->session->userdata('logged_in')) redirect(base_url('overview'));
             $this->load->view("login_view",$this->data);
 	}
         /**
@@ -30,11 +31,19 @@ class Login extends CI_Controller {
          */
         public function send()
         {
-            if($this->session->userdata('logged_in')) redirect(base_url());
+            //If user is loggedin redirect
+            if($this->session->userdata('logged_in')) redirect(base_url('overview'));
+            //Check data from login form with database
             if($this->User_model->check_user($_POST['username'],  sha1($_POST['password']) )){ 
+                //Set session data
                 $this->session->set_userdata('username', $_POST['username']);
                 $this->session->set_userdata('logged_in',TRUE);
-                redirect(base_url());
+                //Set lang session data
+                $result = $this->User_model->get_user_where(array('login'=>$this->session->userdata('username')));
+                $data = getDataOfOneRow($result);
+                $this->session->set_userdata('lang',$data->lang);
+                echo $this->session->userdata('lang');
+                redirect(base_url('overview'));
             }else{
                 $this->data['baddata'] = lang('baddata');
             }

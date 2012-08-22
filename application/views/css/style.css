@@ -243,6 +243,13 @@ p.change_link{
 	width: 500px;
 	position: relative;
 }
+#menulg2{
+        width: 720px;
+	right: 0px;	
+	margin: 0px auto;	
+	width: 60%;
+	position: relative;
+}
 #wrapper p.change_link a {
 	display: inline-block;
 	font-weight: bold;

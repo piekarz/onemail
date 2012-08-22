@@ -6,7 +6,7 @@
     ?>
 <div id='cssmenu'>
             <ul>
-                <li class='has-sub '><a href='<?php echo base_url("welcome") ?>'><span><?php echo lang("overview") ?></span></a>
+                <li class='has-sub '><a href='<?php echo base_url("overview") ?>'><span><?php echo lang("overview") ?></span></a>
                   <ul>
                      <li><a href='#'><span><?php echo lang("colony") ?></span></a>
                      <li><a href='#'><span><?php echo lang("research") ?></span></a></li>

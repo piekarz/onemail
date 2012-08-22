@@ -37,6 +37,11 @@ class User_model extends CI_Model {
     /*
      * This method create new user
      */
+    function get_user_where($where){
+        $this->db->where($where);
+        $query = $this->db->get('user');
+        return $query->result();
+    }
     function insert_user($login, $password, $email, $lang, $session, $active, $lastip)
     {
         $this->login = $login;
