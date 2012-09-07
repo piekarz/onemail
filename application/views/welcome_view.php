@@ -4,6 +4,7 @@
         <meta charset="utf-8" />
         <title><?php echo $header;?></title>
         <link rel="stylesheet" type="text/css" href="<?php echo base_url("application/views/css/main.css");?>" />
+        <link rel="stylesheet" type="text/css" href="<?php echo base_url("application/views/css/menu.css");?>" />
     </head>
 
 
@@ -12,42 +13,67 @@
        <div id=wrapper1>
 
              <!-- Begin header -->
-             <div id=header>
+             <header>
 
 
-                     </div>
+                     </header>
                      <!-- End header -->
 
                      <!-- Begin Navigation -->
-             <div id="navigation">
+             <nav>
                     <?php require_once('/application/views/menu.php'); ?>
 
-               </div>
+               </nav>
             <!-- End navigation -->
 
-             <!-- Begin Faux Columns -->
-                     <div id="faux">
-
+    
+            <div class="articletop"></div>
                            <!-- Begin Right Column -->
-                           <div id="rightcolumn">
-                               <?php echo lang("hello") ?>
-                                <div class="clear"></div>
+<article>
 
-                           </div>
-                           <!-- End Right Column -->
 
-             </div>	   
-             <!-- End Faux Columns --> 
+<div class="col">
+<img src="<?php echo base_url("application/views/images/graph.png");?>" width="61" height="40" alt="graph" class="imgright">
+<h2>See the results</h2>
+<p>Lorem ipsum dolor sit amet, 
+consectetur adipiscing elit. 
+Integer egestas purus bibendum 
+neque aliquam ut posuere elit semper. Fusce sagittis pharetra eros, sit amet consequat sem mollis vitae. Mauris elit sapien, ultricies ac congue at, facilisis at metus. Maecenas imperdiet justo vel dolor eleifend id vulputate erat feugiat.  <a href="#">Read More</a></p>
+</div>
+<div class="col">
+<img src="<?php echo base_url("application/views/images/flowchart.png");?>" width="62" height="39" alt="graph" class="imgright">
+<h2>Easy to manage</h2>
+<p>Lorem ipsum dolor sit amet, 
+consectetur adipiscing elit. 
+Integer egestas purus bibendum 
+neque aliquam ut posuere elit semper. Fusce sagittis pharetra eros, sit amet consequat sem mollis vitae. Mauris elit sapien, ultricies ac congue at, facilisis at metus. Maecenas imperdiet justo vel dolor eleifend id vulputate erat feugiat.  <a href="#">Read More</a></p>
+
+</div>
+<div class="col">
+<img src="<?php echo base_url("application/views/images/ok.png");?>" width="37" height="40" alt="graph" class="imgright">
+<h2>Customer Support</h2>
+<p>Lorem ipsum dolor sit amet, 
+consectetur adipiscing elit. 
+Integer egestas purus bibendum 
+neque aliquam ut posuere elit semper. Fusce sagittis pharetra eros, sit amet consequat sem mollis vitae.  Mauris elit sapien, ultricies ac congue at, facilisis at metus. Maecenas imperdiet justo vel dolor eleifend id vulputate erat feugiat.  <a href="#">Read More</a></p>
+
+</div>
+<div class="clear"></div>
+
+<div class="clear"></div>
+</article>
 
              <!-- Begin Footer -->
-             <div id=footer>
+
+                     <!-- End Footer -->
+
+                      <footer>
 
                    <?php echo lang("global_footer") ?>		
 
-             </div>
-                     <!-- End Footer -->
-
+       </footer>
        </div>
+      
        <!-- End Wrapper -->
     </body>
 </html>

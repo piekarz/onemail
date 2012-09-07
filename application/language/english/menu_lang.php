@@ -1,24 +1,13 @@
 <?php
 
 //Menu:
-$lang['colony']             ="Colony";
-$lang['colonies']           ="Colonies";
-$lang['overview']           ="Overview";
-$lang['military']           ="Military";
-$lang['army']               ="Army";
-$lang['defense']            ="Defense";
-$lang['expedition']         ="Expedition";
-$lang['research']           ="Research";
-$lang['alliance']           ="Alliance";
 $lang['forum']              ="Forum";
-$lang['map']                ="Map";
+$lang['sitemap']            ="Sitemap";
 $lang['account']            ="Account";
 $lang['profile']            ="Profile";
 $lang['login']              ="Login";
-$lang['register']           ="Register";
+$lang['register']           ="Create Account";
 $lang['logout']             ="Logout";
-$lang['about']              ="About Game";
+$lang['about']              ="OneMail";
 $lang['mainpage']           ="Mainpage";
-$lang['guide']              ="Guide";
 $lang['contact']            ="Contact";
-$lang['faq']                ="FAQ";

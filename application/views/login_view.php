@@ -18,15 +18,14 @@
     </head>
     <body>
         <div class="container">
-            
-            <section>				
+            <section>			
+	
                 <div id="container_demo" >
-                    <div id="navigation2">
-                        <div id="menulg"><?php require_once('/application/views/menu.php'); ?></div>
-                    </div>
+
                     <a class="hiddenanchor" id="toregister"></a>
                     <a class="hiddenanchor" id="tologin"></a>
                     <div id="wrapper">
+					
                         <div id="login" class="animate form">
                             <form  action="<?php echo base_url('login/send'); ?>" method="post" autocomplete="on"> 
                                 <h1><?php echo lang("log_in"); ?></h1>
@@ -45,8 +44,10 @@
                                 <p class="change_link">
                                     <?php echo lang("nohave_acc"); ?>
                                     <a href="#toregister" class="to_register"><?php echo lang("createacc"); ?></a>
+                                    <a href="<?php echo base_url();?>"><?php echo lang('back_mainpage');?></a>
 				</p>
                             </form>
+                            
                         </div>
 
                         <div id="register" class="animate form">

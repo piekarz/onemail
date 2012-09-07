@@ -12,3 +12,4 @@ $lang['username']           ="Username";
 $lang['email']              ="Email";
 $lang['repassword']         ="Please confirm your password";
 $lang['r_register']         ="Register";
+$lang['back_mainpage']      ="You can also back to mainpage";

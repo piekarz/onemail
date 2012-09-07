@@ -12,3 +12,4 @@ $lang['username']           ="Nazwa użytkownia";
 $lang['email']              ="Email";
 $lang['repassword']         ="Proszę powtórz hasło";
 $lang['r_register']         ="Rejestracja";
+$lang['back_mainpage']      ="Możesz też wrócić na stronę główną";
