@@ -13,14 +13,14 @@
        <div id=wrapper1>
 
              <!-- Begin header -->
-             <header>
+             <header id="welcome">
 
 
                      </header>
                      <!-- End header -->
 
                      <!-- Begin Navigation -->
-             <nav>
+             <nav id="welcome">
                     <?php require_once('/application/views/menu.php'); ?>
 
                </nav>
@@ -29,7 +29,7 @@
     
             <div class="articletop"></div>
                            <!-- Begin Right Column -->
-<article>
+<article id="welcome">
 
 
 <div class="col">
@@ -67,7 +67,7 @@ neque aliquam ut posuere elit semper. Fusce sagittis pharetra eros, sit amet con
 
                      <!-- End Footer -->
 
-                      <footer>
+                      <footer id="welcome">
 
                    <?php echo lang("global_footer") ?>		
 

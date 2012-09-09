@@ -42,9 +42,10 @@
                                     <input type="submit" value="<?php echo lang("login"); ?>" /> 
 								</p>
                                 <p class="change_link">
+                                    
                                     <?php echo lang("nohave_acc"); ?>
-                                    <a href="#toregister" class="to_register"><?php echo lang("createacc"); ?></a>
-                                    <a href="<?php echo base_url();?>"><?php echo lang('back_mainpage');?></a>
+                                    <a href="#toregister" class="to_register"><?php echo lang("createacc"); ?></a>, <a href="<?php echo base_url();?>"><?php echo lang('mainpage');?></a>
+                                    
 				</p>
                             </form>
                             
@@ -74,7 +75,7 @@
                                 </p>
                                 <p class="change_link">  
                                         <?php echo lang("have_acc"); ?>
-                                        <a href="#tologin" class="to_register"> <?php echo lang("login"); ?> </a>
+                                        <a href="#tologin" class="to_register"> <?php echo lang("login"); ?> </a>, <a href="<?php echo base_url();?>"><?php echo lang('mainpage');?></a>
                                 </p>
                             </form>
                         </div>

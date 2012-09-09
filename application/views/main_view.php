@@ -14,29 +14,14 @@
         <link rel="stylesheet" type="text/css" href="<?php echo base_url("application/views/css/main.css");?>" />
         <link rel="stylesheet" type="text/css" href="<?php echo base_url("application/views/css/demo.css");?>" />
         <link rel="stylesheet" type="text/css" href="<?php echo base_url("application/views/css/style.css");?>" />
+        <link rel="stylesheet" type="text/css" href="<?php echo base_url("application/views/css/menu.css");?>" />
     </head>
     <body>
-        <div class="container">
-            
-            <section>				
-                <div id="container_demo" >
-                    <div id="navigation2">
-                        <div id="menulg2"><?php require_once('/application/views/menu.php'); ?></div>
-                    </div>
-                    <div id="wrapper2">
-			 <div id="rightcolumn">
-                              overview!
-                                <div class="clear"></div>
-
-                         </div>
-                         <div id=footer2>
-
-                               <?php echo lang("global_footer") ?>		
-
-                         </div>
-                    </div>
-                </div>  
-            </section>
+        <div id="wrapper2">
+            <header id="main"></header><nav id="main"><?php require_once('/application/views/menu.php'); ?></nav>
+            <article id="main"></article>
+            <aside id="main"></aside>
+            <footer id="main"><?php echo lang("global_footer") ?></footer>
         </div>
     </body>
 </html>
