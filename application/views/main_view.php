@@ -15,13 +15,23 @@
         <link rel="stylesheet" type="text/css" href="<?php echo base_url("application/views/css/demo.css");?>" />
         <link rel="stylesheet" type="text/css" href="<?php echo base_url("application/views/css/style.css");?>" />
         <link rel="stylesheet" type="text/css" href="<?php echo base_url("application/views/css/menu.css");?>" />
+        <script src="<?php echo base_url("application/views/js/iframesize.js");?>" type="text/javascript"></script>
     </head>
     <body>
         <div id="wrapper2">
-            <header id="main"></header><nav id="main"><?php require_once('/application/views/menu.php'); ?></nav>
-            <article id="main"></article>
-            <aside id="main"></aside>
-            <footer id="main"><?php echo lang("global_footer") ?></footer>
+            <section id="head">
+                <header id="main"></header><nav id="main"><?php require_once('/application/views/menu.php'); ?></nav>
+            </section>
+                <section id="contentbg">
+                    <article id="main">
+                        <iframe id="myframe" src="<?php echo base_url('/mailshow')?>" scrolling="no" marginwidth="0" marginheight="0" frameborder="0" vspace="0" hspace="0" style="overflow:visible; width:100%; display:none"></iframe>
+                     
+                    </article>
+                    <aside id="main">
+                        <?php require_once('/application/views/menu_mail.php'); ?>
+                    </aside>
+                    <footer id="main"><?php echo lang("global_footer") ?></footer>
+                </section>
         </div>
     </body>
 </html>

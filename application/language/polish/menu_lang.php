@@ -1,7 +1,6 @@
 <?php
 
-//Menu:
-//Menu:
+//Main Menu:
 $lang['forum']              ="Forum";
 $lang['sitemap']            ="Mapa Strony";
 $lang['account']            ="Konto";
@@ -15,4 +14,7 @@ $lang['contact']            ="Kontant";
 $lang['emailmain']          ="Main";
 $lang['settings']           ="Ustawienia";
 $lang['accounts']           ="Konta";
-
+//Left Menu:
+$lang['mailbox']            ="Odebrane";
+$lang['write']              ="Napisz";
+$lang['spam']               ="Spam";

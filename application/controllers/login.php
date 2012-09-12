@@ -23,7 +23,7 @@ class Login extends CI_Controller {
         public function index()
 	{
             //If user is loggedin redirect
-            if($this->session->userdata('logged_in')) redirect(base_url('overview'));
+            if($this->session->userdata('logged_in')) redirect(base_url('main'));
             $this->load->view("login_view",$this->data);
 	}
         /**

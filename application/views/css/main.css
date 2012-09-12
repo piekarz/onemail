@@ -8,6 +8,14 @@ body {
  background-repeat: no-repeat;
  background-image: url(/mgr/application/views/images/back.png);
 }
+a:link, a:visited {
+color: #02303d;
+text-decoration: none;
+}
+
+a:hover {
+text-decoration: underline;
+}
 
 /* STYLE FOR PAGES - UNREGISTRED USERS */
 
@@ -67,7 +75,7 @@ article#welcome {
 
 /* STYLE FOR PAGES - REGISTRED USERS */
 #wrapper2 { 
- margin: 0 auto;
+ margin-left: 10px;
  width: 1000px;
  float: left;
  border-width:0px;
@@ -90,51 +98,54 @@ nav#main{
  height: 95px;
  margin: 10px 0px 0px 0px;
 }
-aside#main { 
+section#head{
+    display: block;
+    width: 100%;
+    float:left;
+}
+section#contentbg{
     background: rgba(66, 138, 200, 0.7);
+    display: block;
+    width: 100%;
+    padding: 0 auto;
+    margin: 0 auto;
+    float: left;
+    border: #144976 2px solid;
+    -webkit-border-radius: 10px;
+    -moz-border-radius: 10px;
+    border-radius: 10px;
+}
+aside#main { 
     display: block;
     float: left;
     padding: 10px;
-    width: 175px;
-    border-top: #144976 3px solid;
-    border-bottom: #144976 2px solid;
-    border-left: #144976 3px solid;
-    border-right: #144976 2px solid;
-    -webkit-border-top-left-radius: 10px;
-    -moz-border-radius-topleft: 10px;
-    border-top-left-radius: 10px;
+    width: 178px;
 }
 article#main { 
-    background: rgba(66, 138, 200, 0.7);
     padding: 10px;
     display: block;
     float: right;
-    width: 777px;
-    border-top: #144976 3px solid;
-    border-bottom: #144976 2px solid;
-    border-left: #144976 0px solid;
-    border-right: #144976 3px solid;
-    -webkit-border-top-right-radius: 10px;
-    -moz-border-radius-topright: 10px;
-    border-top-right-radius: 10px;
+    width: 780px;
+    border-left: #144976 2px solid;
+    min-height: 200px;
+}
+h3 {
+    color: #02303d;
+    text-transform: uppercase;
+    text-shadow: 0 1px 0 #5798ab;
+    font-size: 15px;
+    margin: 10px 0 10px 6%;
+    display: block;
+    float: left;
+    width: 90%;
 }
 footer#main{
-    background: rgba(66, 138, 200, 0.7);
     clear: both;
     display: block;
-    width: 974px;
+    width: 980px;
     padding: 10px;
     text-align: center;
-    border-top: #144976 0px solid;
-    border-bottom: #144976 3px solid;
-    border-left: #144976 3px solid;
-    border-right: #144976 3px solid;
-    -webkit-border-bottom-right-radius: 10px;
-    -webkit-border-bottom-left-radius: 10px;
-    -moz-border-radius-bottomright: 10px;
-    -moz-border-radius-bottomleft: 10px;
-    border-bottom-right-radius: 10px;
-    border-bottom-left-radius: 10px;
+    border-top: #144976 2px solid;
 }
 
 
