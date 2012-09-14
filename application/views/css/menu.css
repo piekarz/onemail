@@ -8,7 +8,42 @@
     font-size: 14px;
     font-weight: bold;
 }
+.toggleLinkDiv{
+    color: #02303d;
+    text-shadow: 0 1px 0 #5798ab;
+    font-weight: bold;
+    font-size: 15px;
+    display: block;
+    height: 25px;
+    width: 100%;
+    float: left;
+    padding-bottom: 5px;
+    background-color: #b6d2ef;
+    background-image: -webkit-gradient(linear, left top, left bottom, from(#76ade5), to(#b6d2ef));
+    background-image: -webkit-linear-gradient(top, #76ade5, #b6d2ef);
+    background-image:    -moz-linear-gradient(top, #76ade5, #b6d2ef);
+    background-image:     -ms-linear-gradient(top, #76ade5, #b6d2ef);
+    background-image:      -o-linear-gradient(top, #76ade5, #b6d2ef);
+    background-image:         linear-gradient(top, #76ade5, #b6d2ef);
+    -webkit-box-shadow: 0 1px 0 rgba(255,255,255,.8) inset; 
+    -moz-box-shadow:0 1px 0 rgba(255,255,255,.8) inset;  
+    box-shadow: 0 1px 0 rgba(255,255,255,.8) inset;        
+    border-top: none;
+    text-shadow: 0 1px 0 rgba(255,255,255,.5); 
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    border-radius: 5px;
+}
+.toggleLink {
+color: #999999;
+font-size: 12px;
+text-decoration: none;
+position: relative;
+display: block;
+margin-left: 10px;
+float: left;
 
+}
 #menu-bar {
   margin: 0px 0px 0px 0px;
   padding: 8px 6px 0px 6px;

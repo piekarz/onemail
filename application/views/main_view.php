@@ -15,8 +15,10 @@
         <link rel="stylesheet" type="text/css" href="<?php echo base_url("application/views/css/demo.css");?>" />
         <link rel="stylesheet" type="text/css" href="<?php echo base_url("application/views/css/style.css");?>" />
         <link rel="stylesheet" type="text/css" href="<?php echo base_url("application/views/css/menu.css");?>" />
+        <script src="<?php echo base_url("application/views/js/jquery-1.5.2.min.js");?>" type="text/javascript"></script>
         <script src="<?php echo base_url("application/views/js/iframesize.js");?>" type="text/javascript"></script>
-    </head>
+        <script src="<?php echo base_url("application/views/js/hideshow.js");?>" type="text/javascript"></script>
+     </head>
     <body>
         <div id="wrapper2">
             <section id="head">
@@ -24,7 +26,24 @@
             </section>
                 <section id="contentbg">
                     <article id="main">
-                        <iframe id="myframe" src="<?php echo base_url('/mailshow')?>" scrolling="no" marginwidth="0" marginheight="0" frameborder="0" vspace="0" hspace="0" style="overflow:visible; width:100%; display:none"></iframe>
+                        <?php
+                         if($mode=='mailbox'){
+                             echo '<table class="bordered">
+                                    <tr>
+                                    <th>'.lang('date').'</th>
+                                    <th>'.lang('topic').'</th>
+                                    <th>'.lang('sender').'</th>
+                                    </tr>';
+                                foreach($emails as $mail){
+                                    echo'<tr onclick="window.location='."'".base_url("main/showmail/".$mail['id'])."'".'"><td>'.date("Y/m/d",$mail['date']);
+                                    if($mail['subject']!='')
+                                    echo'</td><td>'.$mail['subject'];
+                                    else echo'</td><td>'.lang('notopic');
+                                    echo'</td><td>'.$mail['sender'].'</td></tr></a>';
+                                }
+                                echo'</table>';
+                            }else echo lang('hello');
+                            ?>
                      
                     </article>
                     <aside id="main">
@@ -32,6 +51,7 @@
                     </aside>
                     <footer id="main"><?php echo lang("global_footer") ?></footer>
                 </section>
+            
         </div>
     </body>
 </html>

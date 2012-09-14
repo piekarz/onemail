@@ -18,3 +18,5 @@ $lang['accounts']           ="Konta";
 $lang['mailbox']            ="Odebrane";
 $lang['write']              ="Napisz";
 $lang['spam']               ="Spam";
+$lang['show']               ="Wysuń";
+$lang['hide']               ="Schowaj";

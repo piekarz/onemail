@@ -2,6 +2,7 @@
 
 
 class mailshow extends CI_Controller {
+    var $mode;
     public function __construct() {
             parent::__construct();
             $langtemp = $this->session->userdata('lang');
@@ -17,8 +18,27 @@ class mailshow extends CI_Controller {
         }
 	public function index()
 	{
-                $data['header'] = lang("global_header");
+                $this->mode='index';
+                $data['mode']=$this->mode;
 		$this->load->view("mailshow_view",$data);
 	}
+        public function mailbox(){
+            $this->mode='mailbox';
+            $mailLib = new MailLib(); 
+            $mailLib->connect('pppiekarz@gmail.com','ppp72301849','imap.googlemail.com','993');
+            
+            $data['emails']=$mailLib->getHeadersHtml();
+            
+//            $emails=$mailLib->getMails(false, 30, 'DESC');
+//            $i=0;
+//            $tabemail;
+//            foreach($emails as $mail){
+//                $tabemail[$i]=$mailLib->getMail($mail);
+//                $i++;
+//            }
+            $data['emails']=$tabemail;
+            $data['mode']=$this->mode;
+            $this->load->view("mailshow_view", $data);
+        }
 }
 

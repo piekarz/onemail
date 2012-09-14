@@ -11,6 +11,7 @@ class MailLib {
     
     public $inbox;
     public $emails;
+    public $header;
     
     
     function __construct(){
@@ -131,7 +132,25 @@ class MailLib {
         return $email;
     }
     
-    
+    function getHeadersList($page){
+        $number=$page*20;
+        $endnumber=$number-20;
+        $a=0+$endnumber;
+        $emails=$this->getMails();
+        for ($i=$number; $i>$endnumber; $i--){
+            $aheader=$this->getHeader($emails[$a]);
+            $header[$a]['id']=$emails[$a];
+            $header[$a]['sender']=$this->getSender($aheader);
+//            if($this->getSubject($aheader)==null)
+//                $this->$header[$a]['subject']='brak tematu';
+//                else
+                $header[$a]['subject']=$this->getSubject($aheader);
+            $header[$a]['date']=$aheader->udate;
+            $a++;
+        }
+        
+        return $header;
+    }
     /**
     * getOverview
     * 

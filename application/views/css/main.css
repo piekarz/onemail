@@ -134,10 +134,10 @@ h3 {
     text-transform: uppercase;
     text-shadow: 0 1px 0 #5798ab;
     font-size: 15px;
-    margin: 10px 0 10px 6%;
+    margin: 0;
     display: block;
     float: left;
-    width: 90%;
+    width: 100%;
 }
 footer#main{
     clear: both;
@@ -147,7 +147,87 @@ footer#main{
     text-align: center;
     border-top: #144976 2px solid;
 }
+/* STYLE FOR TABLE - LIST OF EMAILS*/
+table {
+    *border-collapse: collapse; /* IE7 and lower */
+    border-spacing: 0;
+    width: 100%;    
+}
 
+.bordered {
+    border: solid #144976 1px;
+    -moz-border-radius: 6px;
+    -webkit-border-radius: 6px;
+    border-radius: 6px;
+    -webkit-box-shadow: 0 1px 1px #144976; 
+    -moz-box-shadow: 0 1px 1px #144976; 
+    box-shadow: 0 1px 1px #144976;         
+}
+
+.bordered tr:hover {
+    background: rgba(165,165,165,0.5);
+    -o-transition: all 0.1s ease-in-out;
+    -webkit-transition: all 0.1s ease-in-out;
+    -moz-transition: all 0.1s ease-in-out;
+    -ms-transition: all 0.1s ease-in-out;
+    transition: all 0.1s ease-in-out;     
+}    
+    
+.bordered td, .bordered th {
+    border-left: 1px solid #144976;
+    border-top: 1px solid #144976;
+    padding: 7px;
+    text-align: left;    
+}
+
+.bordered th {
+    background-color: #b6d2ef;
+    background-image: -webkit-gradient(linear, left top, left bottom, from(#76ade5), to(#b6d2ef));
+    background-image: -webkit-linear-gradient(top, #76ade5, #b6d2ef);
+    background-image:    -moz-linear-gradient(top, #76ade5, #b6d2ef);
+    background-image:     -ms-linear-gradient(top, #76ade5, #b6d2ef);
+    background-image:      -o-linear-gradient(top, #76ade5, #b6d2ef);
+    background-image:         linear-gradient(top, #76ade5, #b6d2ef);
+    -webkit-box-shadow: 0 1px 0 rgba(255,255,255,.8) inset; 
+    -moz-box-shadow:0 1px 0 rgba(255,255,255,.8) inset;  
+    box-shadow: 0 1px 0 rgba(255,255,255,.8) inset;        
+    border-top: none;
+    text-shadow: 0 1px 0 rgba(255,255,255,.5); 
+}
+
+.bordered td:first-child, .bordered th:first-child {
+    border-left: none;
+}
+
+.bordered th:first-child {
+    -moz-border-radius: 6px 0 0 0;
+    -webkit-border-radius: 6px 0 0 0;
+    border-radius: 6px 0 0 0;
+}
+
+.bordered th:last-child {
+    -moz-border-radius: 0 6px 0 0;
+    -webkit-border-radius: 0 6px 0 0;
+    border-radius: 0 6px 0 0;
+}
+
+.bordered th:only-child{
+    -moz-border-radius: 6px 6px 0 0;
+    -webkit-border-radius: 6px 6px 0 0;
+    border-radius: 6px 6px 0 0;
+}
+
+.bordered tr:last-child td:first-child {
+    -moz-border-radius: 0 0 0 6px;
+    -webkit-border-radius: 0 0 0 6px;
+    border-radius: 0 0 0 6px;
+}
+
+.bordered tr:last-child td:last-child {
+    -moz-border-radius: 0 0 6px 0;
+    -webkit-border-radius: 0 0 6px 0;
+    border-radius: 0 0 6px 0;
+}
 
 
 .col {width:30%; margin:6px; float:left; padding:0 9px;}

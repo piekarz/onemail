@@ -36,7 +36,6 @@ tempobj.style.display="block"
 }
 }
 }
-
 if (window.addEventListener)
 window.addEventListener("load", dyniframesize, false)
 else if (window.attachEvent)
