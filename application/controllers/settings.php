@@ -1,7 +1,7 @@
 <?php if ( ! defined('BASEPATH')) exit('No direct script access allowed');
 
 
-class Mailshow extends CI_Controller {
+class Settings extends CI_Controller {
     var $mode;
     public function __construct() {
             parent::__construct();
@@ -16,20 +16,10 @@ class Mailshow extends CI_Controller {
             if(isset($_SESSION['username'])) sessionDataAdd($this->session);
             if(!$this->session->userdata('logged_in')) redirect(base_url());
         }
-	public function index($id)
+	public function index()
 	{       
-                if($id==null){
-                    $data['email']=null;
-                }else{
-                    $mailLib = new MailLib(); 
-                    $mailLib->connect('pppiekarz@wp.pl','chlebek1','imap.wp.pl','993');
-                    $email=$mailLib->getMail($id);
-                    if(mb_detect_encoding($email['body'])!='UTF-8')
-                        $email['body']=iconv(mb_detect_encoding($email['body']),'UTF-8',$email['body']);
-                    
-                    $data['email']=$email;
-                }
-		$this->load->view("mailshow_view",$data);
+            
+            $this->load->view("settings_view");
 	}
         
 }

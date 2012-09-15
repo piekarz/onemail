@@ -27,22 +27,7 @@
                 <section id="contentbg">
                     <article id="main">
                         <?php
-                         if($mode=='mailbox'){
-                             echo '<table class="bordered">
-                                    <tr>
-                                    <th>'.lang('date').'</th>
-                                    <th>'.lang('topic').'</th>
-                                    <th>'.lang('sender').'</th>
-                                    </tr>';
-                                foreach($emails as $mail){
-                                    echo'<tr onclick="window.location='."'".base_url("mailshow/index/".$mail['id'])."'".'"><td>'.date("Y/m/d",$mail['date']);
-                                    if($mail['subject']!='')
-                                    echo'</td><td>'.$mail['subject'];
-                                    else echo'</td><td>'.lang('notopic');
-                                    echo'</td><td>'.$mail['sender'].'</td></tr></a>';
-                                }
-                                echo'</table>';
-                            }else echo lang('hello');
+                            
                             ?>
                      
                     </article>

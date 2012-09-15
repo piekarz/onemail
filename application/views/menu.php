@@ -9,11 +9,8 @@
  <li><a href="<?php echo base_url("settings") ?>"><?php echo lang("settings") ?></a>
    <ul>
    <li><a href="#"><?php echo lang("accounts") ?></a></li>
-   <li><a href="#">Services Sub Menu 2</a></li>
-   <li><a href="#">Services Sub Menu 3</a></li>
-   <li><a href="#">Services Sub Menu 4</a></li>
+   <li><a href="<?php echo base_url("profile") ?>"><?php echo lang("profile") ?></a></li>
   </ul></li>
- <li><a href="<?php echo base_url("profile") ?>"><?php echo lang("profile") ?></a></li>
  <li><a href="<?php echo base_url("login/logout") ?>"><?php echo lang("logout") ?></a></li>
 </ul>
 

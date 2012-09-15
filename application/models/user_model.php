@@ -2,11 +2,9 @@
 
 /**
  * Description of user_model
- * This is model for user. Join 2 tables: user, playerinfo
+ * This is model for user table
  * @author Piekarz
  */
-
-require_once APPPATH.'models/playerinfo_model.php';
 
 class User_model extends CI_Model {
 
@@ -17,7 +15,6 @@ class User_model extends CI_Model {
     var     $email;
     var     $lang;
     var     $regdate;
-    var     $idrolefk;
     var     $session;
     var     $active;
     var     $lastip;
@@ -48,18 +45,11 @@ class User_model extends CI_Model {
         $this->password = $password;
         $this->email = $email;
         $this->lang = $lang;
-        $this->idrolefk = 3;
         $this->session = $session;
         $this->active = $active;
         $this->lastip = $lastip;
         //Insert
         $this->db->insert('user', $this);
-        $playerinfo = new playerinfo_model();
-        $this->db->select('iduser');
-        $this->db->where('login',$this->login);
-        $query = $this->db->get('user');
-
-        $playerinfo->insert_playerinfo($this->iduser);
     }
     /*
      * This method update information about user

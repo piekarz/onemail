@@ -1,7 +1,7 @@
 <?php
 
-echo'
-        <div class="toggleLinkDiv"><a href="#" class="toggleLink"><br />pppiekarz@gmail.com</a></div>
+echo'pppiekarz@gmail.com
+        <div class="toggleLinkDiv"><a href="#" class="toggleLink"><br />'; echo lang('menu'); echo'</a></div>
             <ul class="leftmenu">
                     <li ><a href="'; echo base_url('main/mailbox'); echo'" >'; echo lang('mailbox'); echo'</a></li>
                     <li ><a href="#">'; echo lang('write'); echo'</a></li>

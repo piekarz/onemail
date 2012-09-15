@@ -177,7 +177,8 @@ table {
     border-left: 1px solid #144976;
     border-top: 1px solid #144976;
     padding: 7px;
-    text-align: left;    
+    text-align: left; 
+    font-weight: bold;
 }
 
 .bordered th {

@@ -1,7 +1,7 @@
 <?php if ( ! defined('BASEPATH')) exit('No direct script access allowed');
 
 
-class main extends CI_Controller {
+class Main extends CI_Controller {
     var $mode;
     public function __construct() {
             parent::__construct();
@@ -26,7 +26,7 @@ class main extends CI_Controller {
         public function mailbox(){
             $this->mode='mailbox';
             $mailLib = new MailLib(); 
-            $mailLib->connect('pppiekarz@gmail.com','ppp72301849','imap.googlemail.com','993');
+            $mailLib->connect('pppiekarz@wp.pl','chlebek1','imap.wp.pl','993');
 //            $emails=$mailLib->getMails(false, 30, 'DESC');
 //            $i=0;
             $tabemail=$mailLib->getHeadersList(2);
