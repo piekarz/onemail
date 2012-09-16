@@ -229,6 +229,16 @@ table {
     -webkit-border-radius: 0 0 6px 0;
     border-radius: 0 0 6px 0;
 }
+.unread{
+    background-color: rgba(20, 70, 120, 0.7);
+}
+.leftimg{
+    float:left;
+    margin-right: 2px;
+}
+.bold{
+    font-weight: bold;
+}
 
 
 .col {width:30%; margin:6px; float:left; padding:0 9px;}

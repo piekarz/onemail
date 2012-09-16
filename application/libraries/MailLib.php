@@ -3,8 +3,9 @@
 * @file     Mail Library
 * 
 * @author   Hristo Georigev
+* @editedby Przemysław Piekarski
 * @company  42soft ltd
-* @email    h.georgiev@hotmail.com
+* @email    h.georgiev@hotmail.com 
 * @license  check LICENSE.txt
 */   
 class MailLib { 
@@ -141,15 +142,18 @@ class MailLib {
             $aheader=$this->getHeader($emails[$a]);
             $header[$a]['id']=$emails[$a];
             $header[$a]['sender']=$this->getSender($aheader);
-//            if($this->getSubject($aheader)==null)
-//                $this->$header[$a]['subject']='brak tematu';
-//                else
-                $header[$a]['subject']=$this->getSubject($aheader);
+            $header[$a]['unread']=$this->getUnread($aheader);
+            $header[$a]['subject']=$this->getSubject($aheader);
             $header[$a]['date']=$aheader->udate;
             $a++;
         }
         
         return $header;
+    }
+    private function getUnread($header){
+        if($header->Unseen == 'U')
+            return true;
+        return false;
     }
     /**
     * getOverview
@@ -225,12 +229,13 @@ class MailLib {
                 if($encoding == "default"){  // i have no idea why 
                     $encoding = "US-ASCII";
                 }
-                $text = $subject[0]->text;
+                $text='';
+                foreach($subject as $sub)
+                $text = $text.$sub->text;
                 $subject_text = iconv($encoding, 'UTF-8', $text);
                 return $subject_text;    
             }
         }
-        
         
     }
     

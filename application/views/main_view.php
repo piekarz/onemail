@@ -35,11 +35,20 @@
                                     <th>'.lang('sender').'</th>
                                     </tr>';
                                 foreach($emails as $mail){
-                                    echo'<tr onclick="window.location='."'".base_url("mailshow/index/".$mail['id'])."'".'"><td>'.date("Y/m/d",$mail['date']);
-                                    if($mail['subject']!='')
-                                    echo'</td><td>'.$mail['subject'];
-                                    else echo'</td><td>'.lang('notopic');
-                                    echo'</td><td>'.$mail['sender'].'</td></tr></a>';
+                                    if($mail['unread']){
+                                            echo'<tr class="unread" onclick="window.location='."'".base_url("mailshow/index/".$mail['id'])."'".'"><td>'.date("Y/m/d",$mail['date']); 
+                                            if($mail['subject']!='')
+                                            echo'</td><td>'."<img src='".base_url('application/views/images/unread.png')."' class='leftimg' />".$mail['subject'];
+                                            else echo'</td><td>'.lang('notopic');
+                                            echo'</td><td>'.$mail['sender'].'</td></tr></a>';
+                                        }
+                                        else {
+                                            echo'<tr onclick="window.location='."'".base_url("mailshow/index/".$mail['id'])."'".'"><td>'.date("Y/m/d",$mail['date']);
+                                            if($mail['subject']!='')
+                                            echo'</td><td>'.$mail['subject'];
+                                            else echo'</td><td>'.lang('notopic');
+                                            echo'</td><td>'.$mail['sender'].'</td></tr></a>';
+                                        }
                                 }
                                 echo'</table>';
                             }else echo lang('hello');

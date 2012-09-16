@@ -23,13 +23,13 @@ class Main extends CI_Controller {
                 $data['mode']=$this->mode;
 		$this->load->view("main_view",$data);
 	}
-        public function mailbox(){
+        public function mailbox($page=1){
             $this->mode='mailbox';
             $mailLib = new MailLib(); 
-            $mailLib->connect('pppiekarz@wp.pl','chlebek1','imap.wp.pl','993');
+            $mailLib->connect('pppiekarz@gmail.com','ppp72301849','imap.gmail.com','993');
 //            $emails=$mailLib->getMails(false, 30, 'DESC');
 //            $i=0;
-            $tabemail=$mailLib->getHeadersList(2);
+            $tabemail=$mailLib->getHeadersList($page);
 //            foreach($emails as $mail){
 //                $tabemail[$i]=$mailLib->getMail($mail);
 //                $i++;

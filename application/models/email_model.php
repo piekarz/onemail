@@ -34,4 +34,15 @@ class Email_model extends CI_Model {
          $this->db->where('idemail', $id);
          $this->db->update('email', $array); 
     }
+    function get_all_email($iduserfk){
+        $query = $this->db->get_where('email', array('iduserfk'=>$iduserfk));
+        $i=0;
+        if($query->num_rows() > 0){
+            foreach($query->result() as $row){
+                $tab[$i]=$row;
+            }
+            return tab;
+        }
+        else return null;
+    }
 }

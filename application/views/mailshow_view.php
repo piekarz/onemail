@@ -30,16 +30,16 @@
                             if($email==null){
                                 echo'podano złe dane maila';
                             }else{
-                                echo"from: ".$email['sender']."<br />";
-                                echo"recipment: ".$email['recipient']."<br />";
-                                echo"subject: ".$email['subject']."<br />";
-                                echo"date: ".$email['date']."<br />";
-                                echo"body: ".$email['body']."<br />";
-                                echo"attachments: ";
+                                echo '<span class="bold">'.lang('from').': </span>'.$email['sender']."<br />";
+                                echo '<span class="bold">'.lang("recipment").': </span>'.$email['recipient']."<br />";
+                                echo '<span class="bold">'.lang("subject").': </span>'.$email['subject']."<br />";
+                                echo '<span class="bold">'.lang("date").': </span>'.date('d-m-Y G:i',$email['date'])."<br />";
+                                echo '<span class="bold">'.lang("body").': </span>'.$email['body']."<br />";
+                                echo '<span class="bold">'.lang("attachments").': </span>';
                                 if($email['attachments']!=null){
                                     foreach ($email['attachments'] as $attachments)
                                         echo $attachments;                           
-                                        }
+                                        }else echo lang('noattachments');
                                 echo"<br />";
                             }
                             ?>

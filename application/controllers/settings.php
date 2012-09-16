@@ -12,14 +12,20 @@ class Settings extends CI_Controller {
             $this->lang->load('login',$this->language);
             $this->lang->load('global',$this->language);
             $this->load->model('User_model');
+            $this->load->model('Email_model');
             $this->load->file('ajaxfw.php');
             if(isset($_SESSION['username'])) sessionDataAdd($this->session);
             if(!$this->session->userdata('logged_in')) redirect(base_url());
         }
 	public function index()
 	{       
-            
-            $this->load->view("settings_view");
+            $emailModel = new Email_model();
+            $tabEmail=$emailModel->get_all_email();
+            if($tabEmail==null) $data['accemails']=false;
+            else {
+                $data['accemails']=$tabEmail;
+            }
+            $this->load->view("settings_view",$data);
 	}
         
 }
