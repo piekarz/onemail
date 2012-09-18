@@ -115,6 +115,7 @@ class MailLib {
      */
     function getMail($email_id){
         
+        if ($email_id>imap_num_msg($this->inbox) OR $email_id<1) return false;
         $header = $this->getHeader($email_id);
         if(empty($header)){
             throw new Exception('Cannot retrieve header');
@@ -134,11 +135,15 @@ class MailLib {
     }
     
     function getHeadersList($page){
+        $how=ceil(imap_num_msg($this->inbox)/20);
+        if($page>$how OR $page<1) return false;
+        
         $number=$page*20;
         $endnumber=$number-20;
         $a=0+$endnumber;
         $emails=$this->getMails();
-        for ($i=$number; $i>$endnumber; $i--){
+        for ($i=$number; $i>$endnumber; $i--){ 
+            if(!isset($emails[$a]))break;
             $aheader=$this->getHeader($emails[$a]);
             $header[$a]['id']=$emails[$a];
             $header[$a]['sender']=$this->getSender($aheader);

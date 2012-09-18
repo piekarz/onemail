@@ -1,22 +1,14 @@
 <?php
+$emails=$this->session->userdata('emails');
+    echo'<select class="emaillist">';
+    if($emails==null) echo'<option value="none">'.lang('noacc').'</option>';
+    else{
+      echo'<option value="none">'.lang('chooseacc').'</option>';
+      foreach($emails as $email) echo'<option value='.$email.'>'.$email.'</option>';}
+    echo'</select>
 
-echo'pppiekarz@gmail.com
-        <div class="toggleLinkDiv"><a href="#" class="toggleLink"><br />'; echo lang('menu'); echo'</a></div>
-            <ul class="leftmenu">
-                    <li ><a href="'; echo base_url('main/mailbox'); echo'" >'; echo lang('mailbox'); echo'</a></li>
-                    <li ><a href="#">'; echo lang('write'); echo'</a></li>
-                    <li ><a href="#">'; echo lang('spam'); echo'</a></li>
-            </ul>
-        <div class="toggleLinkDiv"><a href="#" class="toggleLink"><br />Menu1</a></div>
-            <ul class="leftmenu">
-                    <li ><a href="#">'; echo lang('mailbox'); echo'1</a></li>
-                    <li ><a href="#">'; echo lang('write'); echo'1</a></li>
-                    <li ><a href="#">'; echo lang('spam'); echo'1</a></li>
-            </ul>
-        <div class="toggleLinkDiv"><a href="#" class="toggleLink"><br />Menu1</a></div>
-            <ul class="leftmenu">
-                    <li ><a href="#">'; echo lang('mailbox'); echo'1</a></li>
-                    <li ><a href="#">'; echo lang('write'); echo'1</a></li>
-                    <li ><a href="#">'; echo lang('spam'); echo'1</a></li>
-            </ul>
-';
+        <ul class="leftmenu">
+                        <li ><a href="'.base_url('main/mailbox').'" >'.lang('mailbox').'</a></li>
+                        <li ><a href="'.base_url('main/write').'">'.lang('write').'</a></li>
+                </ul>
+    ';

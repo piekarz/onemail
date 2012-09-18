@@ -4,7 +4,7 @@ $(document).ready(function() {
 var is_visible = false;
  
 // hide all of the elements with a class of 'toggle'
-$('.leftmenu').hide();
+$('.droptable').hide();
  
 // capture clicks on the toggle links
 $('a.toggleLink').click(function() {
@@ -15,11 +15,11 @@ is_visible = !is_visible;
 
  
 // hide each elements
-$('.leftmenu').each(function(){
-    $('.leftmenu').hide('slow');
-});
+//$('.leftmenu').each(function(){
+//    $('.droptable').hide('400');
+//});
 // show pressed element of menu
-$(this).parent().next('.leftmenu').toggle('slow');
+$(this).parent().next('.droptable').toggle('100');
 
 return false;
  

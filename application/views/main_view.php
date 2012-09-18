@@ -28,6 +28,7 @@
                     <article id="main">
                         <?php
                          if($mode=='mailbox'){
+                             if($emails!=false){
                              echo '<table class="bordered">
                                     <tr>
                                     <th>'.lang('date').'</th>
@@ -39,7 +40,7 @@
                                             echo'<tr class="unread" onclick="window.location='."'".base_url("mailshow/index/".$mail['id'])."'".'"><td>'.date("Y/m/d",$mail['date']); 
                                             if($mail['subject']!='')
                                             echo'</td><td>'."<img src='".base_url('application/views/images/unread.png')."' class='leftimg' />".$mail['subject'];
-                                            else echo'</td><td>'.lang('notopic');
+                                            else echo'</td><td>'."<img src='".base_url('application/views/images/unread.png')."' class='leftimg' />".lang('notopic');
                                             echo'</td><td>'.$mail['sender'].'</td></tr></a>';
                                         }
                                         else {
@@ -51,7 +52,8 @@
                                         }
                                 }
                                 echo'</table>';
-                            }else echo lang('hello');
+                             }else {echo '<h4 class="alert_error">'.lang('badpage').'</h4>';}
+                            }else echo '<h4 class="alert_info">'.lang('hello').'</h4>';
                             ?>
                      
                     </article>

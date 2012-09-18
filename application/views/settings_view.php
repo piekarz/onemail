@@ -27,7 +27,27 @@
                 <section id="contentbg">
                     <article id="main">
                         <?php
-                            
+                            if($accemails==false){
+                                echo "<h4 class='alert_warning'>".lang('noaccemails').'</h4>';
+                            }
+                            else{
+                                foreach ($accemails as $email){
+                                            echo'<div class="toggleLinkDiv">'.$email->memail.'<a href="#" class="toggleLink"><br />'.lang('edit').'</a></div>
+                                                <table class="droptable"><form action="demo_form.asp">
+                                                        <tr><td>'.lang('email').':</td><td><input type="email" name="memail" required="required" value="'.$email->memail.'"/></td></tr>
+                                                        <tr><td>'.lang('password').':</td><td><input type="password" name="mpassword" /></td></tr>
+                                                        <tr><td>'.lang('repassword').':</td><td><input type="password" name="rempassword" /></td></tr>
+                                                        <tr><td>'.lang('imapserv').':</td><td><input type="text" name="imapserv" required="required" value="'.$email->imapserv.'" /></td></tr>
+                                                        <tr><td>'.lang('portimap').':</td><td><input type="number" name="portimap" min="0" max="65535" pattern="[0-9]{1,5}" required="required" value="'.$email->portimap.'" /></td></tr>
+                                                        <tr><td>'.lang('smtpserv').':</td><td><input type="text" name="smtpserv" required="required" value="'.$email->smtpserv.'" /></td></tr>
+                                                        <tr><td>'.lang('portsmtp').':</td><td><input type="number" name="portsmtp" min="0" max="65535" pattern="[0-9]{1,5}" required="required" value="'.$email->portsmtp.'" /></td></tr>
+                                                        <tr><td><input class="button-link" type="submit" value="'.lang('delete').'"/><input class="button-link" type="submit" value="'.lang('edit').'"/></td><td><input type="hidden" value="'.$email->idemail.'"/></td></tr>
+                                                        </form>
+                                                </table>
+                                                ';
+                                    echo"<br />";
+                                }
+                            }
                             ?>
                      
                     </article>

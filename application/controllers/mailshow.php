@@ -18,14 +18,17 @@ class Mailshow extends CI_Controller {
         }
 	public function index($id)
 	{       
+                $data['header']=lang('email');
                 if($id==null){
                     $data['email']=null;
                 }else{
                     $mailLib = new MailLib(); 
                     $mailLib->connect('pppiekarz@gmail.com','ppp72301849','imap.gmail.com','993');
                     $email=$mailLib->getMail($id);
+                    if($email!=false){
                     if(mb_detect_encoding($email['body'])!='UTF-8')
                         $email['body']=iconv(mb_detect_encoding($email['body']),'UTF-8',$email['body']);
+                        }
                     $data['email']=$email;
                 }
 		$this->load->view("mailshow_view",$data);

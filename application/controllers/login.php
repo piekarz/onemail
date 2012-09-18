@@ -42,6 +42,7 @@ class Login extends CI_Controller {
                 $result = $this->User_model->get_user_where(array('login'=>$this->session->userdata('username')));
                 $data = getDataOfOneRow($result);
                 $this->session->set_userdata('lang',$data->lang);
+                $this->session->set_userdata('iduser',$data->iduser);
                 redirect(base_url('main'));
             }else{
                 $this->data['baddata'] = lang('baddata');

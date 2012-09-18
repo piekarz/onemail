@@ -2,7 +2,8 @@
 
 
 class Settings extends CI_Controller {
-    var $mode;
+    var $emailModel;
+    var $userModel;
     public function __construct() {
             parent::__construct();
             $langtemp = $this->session->userdata('lang');
@@ -16,17 +17,30 @@ class Settings extends CI_Controller {
             $this->load->file('ajaxfw.php');
             if(isset($_SESSION['username'])) sessionDataAdd($this->session);
             if(!$this->session->userdata('logged_in')) redirect(base_url());
+            $this->emailModel = new Email_model();
+            $this->userModel = new User_model();
         }
 	public function index()
 	{       
-            $emailModel = new Email_model();
-            $tabEmail=$emailModel->get_all_email();
+            $data['header']=lang('settings');
+            $data['mode']='index';
+            $user=$this->userModel->get_user_where(array('login'=>$this->session->userdata('username')));
+            $tabEmail=$this->emailModel->get_all_email($user[0]->iduser);
             if($tabEmail==null) $data['accemails']=false;
             else {
                 $data['accemails']=$tabEmail;
             }
             $this->load->view("settings_view",$data);
 	}
+        public function add(){
+            $data['mode']='add';
+            $data['header']=lang('settings');
+            if(isset($_POST)){
+                $user=$userModel->get_user_where(array('login'=>$this->session->userdata('username')));
+                
+            }
+            $this->load->view("settings_view",$data);
+        }
         
 }
 

@@ -38,5 +38,5 @@ if ( ! function_exists('getDataOfOneRow')){
     
     function getDataOfOneRow($result){
         foreach($result as $row) return $row;
-    }
+    }   
 }

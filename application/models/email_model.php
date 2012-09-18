@@ -14,21 +14,18 @@ class Email_model extends CI_Model {
     var $memail;
     var $mpassword;
     var $lastemaildate;
-    var $port;
+    var $portimap;
+    var $portsmtp;
+    var $imapserv;
+    var $smtpserv;
 
     
     function __construct()
     {
         parent::__construct();
     }
-    function insert_email($idemail, $iduserfk, $memail, $mpassword, $lastemaildate,$port){
-        $this->idemail=$idemail;
-        $this->iduserfk=$iduserfk;
-        $this->memail=$memail;
-        $this->mpassword=$mpassword;
-        $this->lastemaildate=$lastemaildate;
-        $this->port=$port;
-        $this->db->insert('email', $this);
+    function insert_email($idemail, $iduserfk, $memail, $mpassword, $portimap,$portsmtp, $imapserv, $smtpserv){
+        $this->db->insert('email', array('iduserfk'=>$iduserfk, 'memail'=>$memail, 'mpassword'=>$mpassword,'portimap'=>$portimap,'portsmtp'=>$portsmtp, 'imapserv'=>$imapserv, 'smtpserv'=>$smtpserv));
     }
     function update_email($array,$id){
          $this->db->where('idemail', $id);
@@ -37,11 +34,14 @@ class Email_model extends CI_Model {
     function get_all_email($iduserfk){
         $query = $this->db->get_where('email', array('iduserfk'=>$iduserfk));
         $i=0;
-        if($query->num_rows() > 0){
+        if($query->num_rows() > 1){
             foreach($query->result() as $row){
                 $tab[$i]=$row;
-            }
-            return tab;
+                $i++;
+            } 
+            return $tab;
+        }elseif($query->num_rows()==1){
+            return $query->result();
         }
         else return null;
     }

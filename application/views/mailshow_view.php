@@ -27,8 +27,8 @@
                 <section id="contentbg">
                     <article id="main">
                         <?php
-                            if($email==null){
-                                echo'podano złe dane maila';
+                            if($email==null or $email==false){
+                                echo '<h4 class="alert_error">'.lang('badmailid').'</h4>';
                             }else{
                                 echo '<span class="bold">'.lang('from').': </span>'.$email['sender']."<br />";
                                 echo '<span class="bold">'.lang("recipment").': </span>'.$email['recipient']."<br />";
