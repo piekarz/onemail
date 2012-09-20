@@ -4,7 +4,7 @@ $emails=$this->session->userdata('emails');
     if($emails==null) echo'<option value="none">'.lang('noacc').'</option>';
     else{
       echo'<option value="none">'.lang('chooseacc').'</option>';
-      foreach($emails as $email) echo'<option value='.$email.'>'.$email.'</option>';}
+      foreach($emails as $email) echo'<option value="'.$email.'">'.$email.'</option>';}
     echo'</select>
 
         <ul class="leftmenu">

@@ -15,7 +15,7 @@ class Login extends CI_Controller {
             $this->load->file('ajaxfw.php');
             $this->data['header'] = lang("global_header");
             $this->data['baddata'] ='';
-            if(isset($_SESSION['username'])) sessionDataAdd($this->session);
+            if(!isset($this->session)) sessionDataAdd($this->session);
         }
         /**
          * Default action in login page

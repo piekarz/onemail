@@ -27,13 +27,39 @@
                 <section id="contentbg">
                     <article id="main">
                         <?php
-                            if($accemails==false){
+                    //ADD FORM - NEW ACCOUNT
+                        if('settings/add'==$this->uri->uri_string){
+                            if($warning!='') echo'<h4 class="alert_warning" >'.$warning.'</h4>';
+                            if($success!='') echo'<h4 class="alert_success" >'.$success.'</h4>';
+                            echo'
+                                                <table class="addtable"><form method="post" action="'.base_url('settings/add').'">
+                                                        <tr><th class="headth">'.lang('addemailacc').':</th><th></th></tr>
+                                                        <tr><td>'.lang('email').':</td><td><input type="email" name="memail" required="required" placeholder="email@mail.com" value="'.$postdata['memail'].'"/></td></tr>
+                                                        <tr><td>'.lang('password').':</td><td><input type="password" name="mpassword" /></td></tr>
+                                                        <tr><td>'.lang('repassword').':</td><td><input type="password" name="rempassword" /></td></tr>
+                                                        <tr><td>'.lang('imapserv').':</td><td><input type="text" name="imapserv" required="required" placeholder="imap.mail.com" value="'.$postdata['imapserv'].'" /></td></tr>
+                                                        <tr><td>'.lang('portimap').':</td><td><input type="number" name="portimap" min="0" max="65535" pattern="[0-9]{1,5}" required="required" placeholder="993" value="'.$postdata['portimap'].'" /></td></tr>
+                                                        <tr><td>'.lang('smtpserv').':</td><td><input type="text" name="smtpserv" required="required" placeholder="smtp.mail.com" value="'.$postdata['smtpserv'].'" /></td></tr>
+                                                        <tr><td>'.lang('portsmtp').':</td><td><input type="number" name="portsmtp" min="0" max="65535" pattern="[0-9]{1,5}" required="required" placeholder="443" value="'.$postdata['portsmtp'].'" /></td></tr>
+                                                        <tr><td><input class="button-link" type="submit" name="add" value="'.lang('add').'"/></td><td></td></tr>
+                                                        </form>
+                                                </table>';
+                        }else{
+                            echo'<br /><a class="button-link" href="'.base_url('settings/add').'">'.lang('addemailacc').'</a><br /><br />';
+                    //INFO THAT USER HAVEN'T EMAIL ACCOUNTS
+                            if(false==$accemails){
                                 echo "<h4 class='alert_warning'>".lang('noaccemails').'</h4>';
                             }
                             else{
+                    //EDIT FORMS WITH ACCOUNTS
+                            if($warning!='') echo'<h4 class="alert_warning" >'.$warning.'</h4><br />';
+                            if($success!='') echo'<h4 class="alert_success" >'.$success.'</h4><br />';
                                 foreach ($accemails as $email){
                                             echo'<div class="toggleLinkDiv">'.$email->memail.'<a href="#" class="toggleLink"><br />'.lang('edit').'</a></div>
-                                                <table class="droptable"><form action="demo_form.asp">
+                                                <table class="';
+                                                if($dtshowid==$email->idemail)echo"droptableshow";
+                                                else echo'droptable';
+                                            echo'"><form method="post" action="'.base_url('settings').'">
                                                         <tr><td>'.lang('email').':</td><td><input type="email" name="memail" required="required" value="'.$email->memail.'"/></td></tr>
                                                         <tr><td>'.lang('password').':</td><td><input type="password" name="mpassword" /></td></tr>
                                                         <tr><td>'.lang('repassword').':</td><td><input type="password" name="rempassword" /></td></tr>
@@ -41,12 +67,14 @@
                                                         <tr><td>'.lang('portimap').':</td><td><input type="number" name="portimap" min="0" max="65535" pattern="[0-9]{1,5}" required="required" value="'.$email->portimap.'" /></td></tr>
                                                         <tr><td>'.lang('smtpserv').':</td><td><input type="text" name="smtpserv" required="required" value="'.$email->smtpserv.'" /></td></tr>
                                                         <tr><td>'.lang('portsmtp').':</td><td><input type="number" name="portsmtp" min="0" max="65535" pattern="[0-9]{1,5}" required="required" value="'.$email->portsmtp.'" /></td></tr>
-                                                        <tr><td><input class="button-link" type="submit" value="'.lang('delete').'"/><input class="button-link" type="submit" value="'.lang('edit').'"/></td><td><input type="hidden" value="'.$email->idemail.'"/></td></tr>
+                                                        <tr><td><input class="button-link" type="submit" name="delete" value="'.lang('delete').'"/><input class="button-link" type="submit" name="edit" value="'.lang('edit').'"/></td><td><input type="hidden" name="idemail" value="'.$email->idemail.'"/></td></tr>
                                                         </form>
                                                 </table>
                                                 ';
                                     echo"<br />";
                                 }
+                            }
+
                             }
                             ?>
                      

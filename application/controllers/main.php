@@ -18,10 +18,9 @@ class Main extends CI_Controller {
             //Check if session exist and when exist check if user is logged in or not
             if(isset($_SESSION['username'])) sessionDataAdd($this->session);
             if(!$this->session->userdata('logged_in')) redirect(base_url());
-            
             //Load email list from database and save in session
             $emails = new Email_model();
-            $getem=$emails->get_all_email($this->session->sess_read('iduser'));
+            $getem=$emails->get_all_email($this->session->userdata('iduser'));
             if($getem!=null){
                 if(is_array($getem))
                     foreach($getem as $email){

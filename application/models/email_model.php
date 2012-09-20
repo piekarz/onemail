@@ -24,7 +24,7 @@ class Email_model extends CI_Model {
     {
         parent::__construct();
     }
-    function insert_email($idemail, $iduserfk, $memail, $mpassword, $portimap,$portsmtp, $imapserv, $smtpserv){
+    function insert_email($iduserfk, $memail, $mpassword, $portimap, $portsmtp, $imapserv, $smtpserv){
         $this->db->insert('email', array('iduserfk'=>$iduserfk, 'memail'=>$memail, 'mpassword'=>$mpassword,'portimap'=>$portimap,'portsmtp'=>$portsmtp, 'imapserv'=>$imapserv, 'smtpserv'=>$smtpserv));
     }
     function update_email($array,$id){
@@ -44,5 +44,12 @@ class Email_model extends CI_Model {
             return $query->result();
         }
         else return null;
+    }
+    function get_email_where($where){
+        $query = $this->db->get_where('email',$where);
+        return $query->result();
+    }
+    function delete_email($idemail){
+        $query = $this->db->delete('email', array('idemail'=>$idemail));
     }
 }
