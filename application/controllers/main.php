@@ -2,7 +2,6 @@
 
 
 class Main extends CI_Controller {
-    var $mode;
     public function __construct() {
             parent::__construct();
             $langtemp = $this->session->userdata('lang');
@@ -33,21 +32,32 @@ class Main extends CI_Controller {
 	
         public function index()
 	{
-                $this->mode='index';
-                $data['mode']=$this->mode;
+                $data['mode']='index';
                 $data['header']=lang('mailbox');
 		$this->load->view("main_view",$data);
 	}
         public function mailbox($page=1){
-            $this->mode='mailbox';
-//            $mailLib = new MailLib(); 
-//            $mailLib->connect('pppiekarz@gmail.com','ppp72301849','imap.gmail.com','993');
+            $data['mode']='mailbox';
             $emailRow=$this->session->userdata('emaildb');
-            $this->maillib->connect($emailRow->memail,$emailRow->mpassword,$emailRow->imapserv,$emailRow->portimap);
-            $tabemail=$this->maillib->getHeadersList($page);
-            $data['emails']=$tabemail;
-            $data['mode']=$this->mode;
-            $data['header']=lang('mailbox');
+            //Check if email was choose from list
+            if(is_object($emailRow)){
+//                try{
+                    $connection=$this->maillib->connect($emailRow->memail,$emailRow->mpassword,$emailRow->imapserv,$emailRow->portimap);
+                    if($connection!=false){
+                            $tabemail=$this->maillib->getHeadersList($page);
+                            $data['emails']=$tabemail;
+                            $data['header']=lang('mailbox');
+                            //echo $this->maillib->numberOfPages();
+                            $this->maillib->close();}
+                            
+                        else {
+                            $data['nochoose']='noconn';
+                            
+                        }
+//                }catch(Exception $e){
+//                    $data['nochoose']=$e;
+//                }
+            }else $data['nochoose']='nochoose';
             $this->load->view("main_view", $data);
         }
 }

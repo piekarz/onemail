@@ -30,6 +30,17 @@ class Settings extends CI_Controller {
                 $tab=$this->session->userdata('emails');
                 unset($tab[$_POST['idemail']]);
                 $this->session->set_userdata('emails',$tab);
+                //Choose first email from list in session and set as selected
+                foreach($this->session->userdata('emails') as $email){
+                    $this->session->set_userdata('selectedemail',$email);
+                    break;
+                 }
+                //Then set email object from db to session
+                $where = array('memail'=>$this->session->userdata('selectedemail'));
+                $emailModel = new Email_model();
+                $result=$emailModel->get_email_where($where);
+                $emailRow=getDataOfOneRow($result);
+                $this->session->set_userdata('emaildb',$emailRow);
             } //Edit Email
             elseif( isset($_POST['edit'])){
                 $data['dtshowid']=$_POST['idemail'];
@@ -51,7 +62,21 @@ class Settings extends CI_Controller {
                     //I unset postvariables to give model array $_POST
                     unset($_POST['idemail']);
                     unset($_POST['edit']);
+                    //Update edited email
                     $this->emailModel->update_email($_POST, $idemail);
+                    //Update session data
+                    $tab=$this->session->userdata('emails');
+                    $tab[$idemail]=$_POST['memail'];
+                    $this->session->set_userdata('emails',$tab);
+                    $where=array('idemail'=>$idemail);
+                    $result=$this->emailModel->get_email_where($where);
+                    $emailRow=getDataOfOneRow($result);
+                    $this->session->set_userdata('emaildb',$emailRow);
+                    //Choose first email from list in session and set as selected
+                    foreach($this->session->userdata('emails') as $email){
+                        $this->session->set_userdata('selectedemail',$email);
+                        break;
+                    }
                     $data['success']=lang('success_em_edit');
                 }
                 

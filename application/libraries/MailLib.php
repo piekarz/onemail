@@ -8,7 +8,7 @@
 * @email    h.georgiev@hotmail.com 
 * @license  check LICENSE.txt
 */   
-class MailLib { 
+class MailLib  { 
     
     public $inbox;
     public $emails;
@@ -40,9 +40,13 @@ class MailLib {
          * /novalidate-cert ( maybe you would like to add this)
 		 */
         
-        
-        $this->inbox = imap_open($hostname,$username,$password) or die('Cannot connect to mail server: ' . imap_last_error());
-        return (bool)$this->inbox;
+             
+            $this->inbox = @imap_open($hostname,$username,$password);
+            if(false!=imap_errors()){ 
+                imap_alerts();
+                return false;}
+                
+            return (bool)$this->inbox;
     }
     function close(){
         imap_close($this->inbox);
@@ -106,7 +110,10 @@ class MailLib {
         }
         return $this->emails;
     }
-
+    function numberOfPages(){
+        $numbermsg=imap_num_msg($this->imbox);
+        return round($numbermsg/20);
+    }
     
      /**
      * getMail

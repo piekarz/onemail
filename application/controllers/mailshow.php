@@ -29,6 +29,7 @@ class Mailshow extends CI_Controller {
                         }
                     $data['email']=removeBadChar($email);
                 }
+                $this->maillib->close();
 		$this->load->view("mailshow_view",$data);
 	}
         

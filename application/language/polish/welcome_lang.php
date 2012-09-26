@@ -4,6 +4,8 @@ $lang['noaccemails']        ="Nie masz przypisanych żadnych skrzynek mailowych 
 $lang['badpage']            ="Podano zły numer strony!";
 $lang['mailbox']            ="Skrzynka";
 $lang['badmailid']          ="Podano zły numer emaila!";
+$lang['nochoose']           ="Nie wybrałeś skrzynki mailowej!";
+$lang['noconn']             ="Nie można ustalić połączenia z serwerem poczty! Sprawdź czy dane do konta są prawidłowe!";
 
 //Email show:
 $lang['from']               ="Od";

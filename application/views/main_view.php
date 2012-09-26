@@ -27,7 +27,11 @@
                 <section id="contentbg">
                     <article id="main">
                         <?php
-                         if($mode=='mailbox'){
+                       //Check mode of main page
+                        if($mode=='mailbox'){
+                       //Check if we choose mailbox and try to connect
+                       if(!isset($nochoose)){
+                           //Check if there are some emails in mailbox
                              if($emails!=false){
                              echo '<table class="bordered">
                                     <tr>
@@ -35,7 +39,9 @@
                                     <th>'.lang('topic').'</th>
                                     <th>'.lang('sender').'</th>
                                     </tr>';
+                                //Show list of emails
                                 foreach($emails as $mail){
+                                    //Check if unreaded
                                     if($mail['unread']){
                                             echo'<tr class="unread" onclick="window.location='."'".base_url("mailshow/index/".$mail['id'])."'".'"><td>'.date("Y/m/d",$mail['date']); 
                                             if($mail['subject']!='')
@@ -43,6 +49,7 @@
                                             else echo'</td><td>'."<img src='".base_url('application/views/images/unread.png')."' class='leftimg' />".lang('notopic');
                                             echo'</td><td>'.$mail['sender'].'</td></tr></a>';
                                         }
+                                        //or readed
                                         else {
                                             echo'<tr onclick="window.location='."'".base_url("mailshow/index/".$mail['id'])."'".'"><td>'.date("Y/m/d",$mail['date']);
                                             if($mail['subject']!='')
@@ -52,8 +59,16 @@
                                         }
                                 }
                                 echo'</table>';
-                             }else {echo '<h4 class="alert_error">'.lang('badpage').'</h4>';}
-                            }else echo '<h4 class="alert_info">'.lang('hello').'</h4>';
+                                //If there aren't emails it could be bad page
+                             }else echo '<h4 class="alert_error">'.lang('badpage').'</h4>';
+                            //If email wasn't choosed from list
+                            }else{ 
+                                //or was choosed and can not connect to email serv
+                                if($nochoose!='nochoose') echo '<h4 class="alert_error">'.lang('noconn').'</h4>';
+                                //otherwise warning that email wasn't choosed from left list
+                                else echo '<h4 class="alert_warning">'.lang('nochoose').'</h4>';}
+                                    //Message if MAIN mode
+                                    }else echo '<h4 class="alert_info">'.lang('hello').'</h4>';
                             ?>
                      
                     </article>

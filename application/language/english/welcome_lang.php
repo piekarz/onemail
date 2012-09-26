@@ -4,6 +4,8 @@ $lang['noaccemails']        ="You haven't any configured email accounts!";
 $lang['badpage']            ="Bad page adress!";
 $lang['mailbox']            ="Inbox";
 $lang['badmailid']          ="Bad email number!";
+$lang['nochoose']           ="You didn't choose email account!";
+$lang['noconn']             ="You can not establish a connection to email account! Check your account details are correct!";
 
 //Email show:
 $lang['from']               ="From";
