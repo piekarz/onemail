@@ -6,5 +6,3 @@ RewriteCond %{REQUEST_FILENAME} !-f
 RewriteCond %{REQUEST_FILENAME} !-d
 RewriteCond $1 !^(index\.php|images|robots\.txt|css)
 RewriteRule ^(.*)$ index.php?$1 [L]
-
-RewriteRule  ^/?ajax/(.*)$	ajax.php?$1 [NC,QSA,L]

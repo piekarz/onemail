@@ -13,10 +13,7 @@ class Main extends CI_Controller {
             $this->lang->load('global',$this->language);
             $this->load->model('User_model');
             $this->load->model('Email_model');
-            $this->load->file('ajaxfw.php');
-            
             //Check if session exist and when exist check if user is logged in or not
-            if(isset($_SESSION['username'])) sessionDataAdd($this->session);
             if(!$this->session->userdata('logged_in')) redirect(base_url());
             //Load email list from database and save in session
             $emails = new Email_model();
@@ -43,9 +40,11 @@ class Main extends CI_Controller {
 	}
         public function mailbox($page=1){
             $this->mode='mailbox';
-            $mailLib = new MailLib(); 
-            $mailLib->connect('pppiekarz@gmail.com','ppp72301849','imap.gmail.com','993');
-            $tabemail=$mailLib->getHeadersList($page);
+//            $mailLib = new MailLib(); 
+//            $mailLib->connect('pppiekarz@gmail.com','ppp72301849','imap.gmail.com','993');
+            $emailRow=$this->session->userdata('emaildb');
+            $this->maillib->connect($emailRow->memail,$emailRow->mpassword,$emailRow->imapserv,$emailRow->portimap);
+            $tabemail=$this->maillib->getHeadersList($page);
             $data['emails']=$tabemail;
             $data['mode']=$this->mode;
             $data['header']=lang('mailbox');

@@ -10,8 +10,7 @@ class Welcome extends CI_Controller {
             $this->lang->load('menu',$this->language);
             $this->lang->load('global',$this->language);
             $this->load->model('User_model');
-            $this->load->file('ajaxfw.php');
-            if(isset($_SESSION['username'])) sessionDataAdd($this->session);
+            if(FALSE==$this->session->userdata('lang')) $this->session->set_userdata(sessionDataAdd());
         }
 	public function index()
 	{

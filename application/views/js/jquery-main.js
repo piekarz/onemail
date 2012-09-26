@@ -1,14 +1,27 @@
 $(document).ready(function() {
- 
-// $("select.emaillist").change(function () {
-//          $("select option:selected").each(function () {
-//                $("select.emaillist").each(function(){
-//                    $('option').removeAttr('selected');
-//                });
-//                $(this).addAttr('selected','selected');
-//              });
-//        });
-// initialise the visibility check
+    ;
+$("select.emaillist").change(function() {
+    
+    $("select option:selected").each(function () {
+        
+            $.ajax({
+                    type: "POST",
+                    url: "/mgr/ajaxactions/post_ajax",
+                    dataType: "json",
+                    data: "email="+$(this).text(),
+                    cache:false
+//                    success: 
+//                      function(data){
+//                        $("div.leftecho").text(data); 
+//                      }
+
+                    });
+                    
+    });
+        
+});
+
+
 var is_visible = false;
  
 // hide all of the elements with a class of 'toggle'

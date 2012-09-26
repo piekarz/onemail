@@ -14,7 +14,6 @@ class MailLib {
     public $emails;
     public $header;
     
-    
     function __construct(){
         $this->CI =& get_instance(); // needed for CodeIgniter
     }
@@ -32,7 +31,6 @@ class MailLib {
     */
     function connect($username, $password, $server, $port, $ssl = true){
         $this->username = $username;
-        
         $ssl = ($ssl == true) ? "/ssl" : '';
         $hostname = "{" . $server . ":" .$port . "/imap" . $ssl ."}INBOX"; 
         
@@ -44,6 +42,10 @@ class MailLib {
         
         
         $this->inbox = imap_open($hostname,$username,$password) or die('Cannot connect to mail server: ' . imap_last_error());
+        return (bool)$this->inbox;
+    }
+    function close(){
+        imap_close($this->inbox);
         return (bool)$this->inbox;
     }
     
@@ -237,7 +239,7 @@ class MailLib {
                 $text='';
                 foreach($subject as $sub)
                 $text = $text.$sub->text;
-                $subject_text = iconv($encoding, 'UTF-8', $text);
+                $subject_text = iconv($encoding, 'UTF-8//IGNORE', $text);
                 return $subject_text;    
             }
         }

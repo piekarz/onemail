@@ -119,13 +119,13 @@ aside#main {
     display: block;
     float: left;
     padding: 10px;
-    width: 178px;
+    width: 158px;
 }
 article#main { 
     padding: 10px;
     display: block;
     float: right;
-    width: 780px;
+    width: 800px;
     border-left: #144976 2px solid;
     min-height: 200px;
 }

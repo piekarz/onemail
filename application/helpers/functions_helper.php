@@ -25,13 +25,14 @@ if ( ! function_exists('loadLang'))
 
 if ( ! function_exists('sessionDataAdd')){
     
-    function sessionDataAdd($session){
+    function sessionDataAdd(){
         $newdata = array(
                    'lang' => '',
                    'username'  => '',
-                   'logged_in' => FALSE
+                   'logged_in' => FALSE,
+                   'selectedemail'=>''
                );
-        $session->set_userdata($newdata);
+        return $newdata;
     }
 }
 if ( ! function_exists('getDataOfOneRow')){
@@ -39,4 +40,16 @@ if ( ! function_exists('getDataOfOneRow')){
     function getDataOfOneRow($result){
         foreach($result as $row) return $row;
     }   
+}
+if ( ! function_exists('removeBadChar')){
+    
+        function removeBadChar($string){
+            $arrayBad = array(
+                '±','Ľ','ˇ','¶','¦','¬'
+            );
+            $arrayGood = array(
+                'ą','ł','Ą','ś','Ś','Ł'
+            );
+            return str_replace($arrayBad, $arrayGood, $string);
+        }
 }

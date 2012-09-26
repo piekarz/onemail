@@ -12,10 +12,9 @@ class Login extends CI_Controller {
             $this->lang->load('login',$this->language);
             $this->lang->load('global',$this->language);
             $this->load->model('User_model');
-            $this->load->file('ajaxfw.php');
             $this->data['header'] = lang("global_header");
             $this->data['baddata'] ='';
-            if(!isset($this->session)) sessionDataAdd($this->session);
+            if(FALSE==$this->session->userdata('lang')) $this->session->set_userdata(sessionDataAdd());
         }
         /**
          * Default action in login page

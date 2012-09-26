@@ -12,8 +12,6 @@ class Mailshow extends CI_Controller {
             $this->lang->load('login',$this->language);
             $this->lang->load('global',$this->language);
             $this->load->model('User_model');
-            $this->load->file('ajaxfw.php');
-            if(isset($_SESSION['username'])) sessionDataAdd($this->session);
             if(!$this->session->userdata('logged_in')) redirect(base_url());
         }
 	public function index($id)
@@ -22,14 +20,14 @@ class Mailshow extends CI_Controller {
                 if($id==null){
                     $data['email']=null;
                 }else{
-                    $mailLib = new MailLib(); 
-                    $mailLib->connect('pppiekarz@gmail.com','ppp72301849','imap.gmail.com','993');
-                    $email=$mailLib->getMail($id);
+                    $emailRow=$this->session->userdata('emaildb');
+                    $this->maillib->connect($emailRow->memail,$emailRow->mpassword,$emailRow->imapserv,$emailRow->portimap);
+                    $email=$this->maillib->getMail($id);
                     if($email!=false){
                     if(mb_detect_encoding($email['body'])!='UTF-8')
-                        $email['body']=iconv(mb_detect_encoding($email['body']),'UTF-8',$email['body']);
+                          $email['body']=iconv(mb_detect_encoding($email['body']),'UTF-8//IGNORE',$email['body']);
                         }
-                    $data['email']=$email;
+                    $data['email']=removeBadChar($email);
                 }
 		$this->load->view("mailshow_view",$data);
 	}
