@@ -15,7 +15,7 @@ $lang['emailmain']          ="Main";
 $lang['settings']           ="Ustawienia";
 $lang['accounts']           ="Konta Email";
 //Left Menu:
-$lang['mailbox']            ="Odebrane";
+$lang['mailbox']            ="Skrzynka";
 $lang['write']              ="Napisz";
 $lang['spam']               ="Spam";
 $lang['edit']               ="Edytuj";

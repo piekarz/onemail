@@ -147,6 +147,18 @@ footer#main{
     text-align: center;
     border-top: #144976 2px solid;
 }
+/* STYLE FOR MAILBOX PAGE BUTTONS */
+.pagebutton{
+    font-weight: bold;
+    padding: 4px;
+    font-size: 14px;
+    background-color: #b6d2ef;
+    color: black;
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    border-radius: 5px;
+    border: #144976 1px solid;
+}
 /* STYLE FOR TABLE - LIST OF EMAILS*/
 table {
     *border-collapse: collapse; /* IE7 and lower */

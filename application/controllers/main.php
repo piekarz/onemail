@@ -38,6 +38,7 @@ class Main extends CI_Controller {
 	}
         public function mailbox($page=1){
             $data['mode']='mailbox';
+            $data['thispage']=$page;
             $emailRow=$this->session->userdata('emaildb');
             //Check if email was choose from list
             if(is_object($emailRow)){
@@ -45,6 +46,7 @@ class Main extends CI_Controller {
                     $connection=$this->maillib->connect($emailRow->memail,$emailRow->mpassword,$emailRow->imapserv,$emailRow->portimap);
                     if($connection!=false){
                             $tabemail=$this->maillib->getHeadersList($page);
+                            $data['numberpages']=$this->maillib->numberOfPages();
                             $data['emails']=$tabemail;
                             $data['header']=lang('mailbox');
                             //echo $this->maillib->numberOfPages();

@@ -2,7 +2,6 @@
 $lang['hello']              ="Hello, choose email account from left menu. If you don't see email accounts on the list then go to settings and add new account.";
 $lang['noaccemails']        ="You haven't any configured email accounts!";
 $lang['badpage']            ="Bad page adress!";
-$lang['mailbox']            ="Inbox";
 $lang['badmailid']          ="Bad email number!";
 $lang['nochoose']           ="You didn't choose email account!";
 $lang['noconn']             ="You can not establish a connection to email account! Check your account details are correct!";

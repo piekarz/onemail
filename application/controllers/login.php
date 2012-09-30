@@ -14,6 +14,7 @@ class Login extends CI_Controller {
             $this->load->model('User_model');
             $this->data['header'] = lang("global_header");
             $this->data['baddata'] ='';
+            $this->data['success'] ='';
             if(FALSE==$this->session->userdata('lang')) $this->session->set_userdata(sessionDataAdd());
         }
         /**
@@ -21,6 +22,10 @@ class Login extends CI_Controller {
          */
         public function index()
 	{
+            if(detect_ie())
+                $this->data['mode']='login';
+            else
+                $this->data['mode']='default';
             //If user is loggedin redirect
             if($this->session->userdata('logged_in')) redirect(base_url('main'));
             $this->load->view("login_view",$this->data);
@@ -30,8 +35,12 @@ class Login extends CI_Controller {
          */
         public function send()
         {
+            if(detect_ie())
+                $this->data['mode']='login';
+            else
+                $this->data['mode']='default';
             //If user is loggedin redirect
-            if($this->session->userdata('logged_in')) redirect(base_url('overview'));
+            if($this->session->userdata('logged_in')) redirect(base_url('main'));
             //Check data from login form with database
             if($this->User_model->check_user($_POST['username'],  sha1($_POST['password']) )){ 
                 //Set session data
@@ -45,6 +54,42 @@ class Login extends CI_Controller {
                 redirect(base_url('main'));
             }else{
                 $this->data['baddata'] = lang('baddata');
+            }
+            $this->load->view("login_view",$this->data);
+        }
+        /**
+         * Register function
+         */
+        public function register(){
+            $this->data['mode']='register';
+            $baddata='';
+            //If user is loggedin redirect
+            if($this->session->userdata('logged_in')) redirect(base_url('main'));
+            //Check POST array is set
+            if(isset($_POST['username'])){
+                //Check data form is empty
+                if(''==$_POST['username'] or ''==$_POST['email'] or ''==$_POST['password'] or ''==$_POST['repassword']) $baddata=lang('empty').'<br />';
+                //Check passwords are same
+                if($_POST['password']!==$_POST['repassword']) $baddata=$baddata.lang('r_notsame').'<br />';
+                //Check Password is too short
+                if(strlen($_POST['password'])<6) $baddata=$baddata.lang('r_passtoshort').'<br />';
+                //Check if login exist
+                $result=$this->User_model->get_user_where(array('login'=>$_POST["username"]));
+                if(!empty($result)) $baddata=$baddata.lang('r_userexist').'<br />';
+                //Check if email exist
+                $result=$this->User_model->get_user_where(array('email'=>$_POST["email"]));
+                if(!empty($result)) $baddata=$baddata.lang('r_emailexist').'<br />';
+                //Check if email is EMAIL!
+                if (!filter_var($_POST['email'], FILTER_VALIDATE_EMAIL))$baddata=$baddata.lang('r_noemail').'<br />';
+                
+             //IF everything is ok then add new user!
+                if(''==$baddata) {
+                    $this->User_model->insert_user($_POST['username'],sha1($_POST['password']),$_POST['email'],$this->language,'',1,$_SERVER['REMOTE_ADDR']);
+                    $this->data['success']=lang('r_useradded');
+                }
+                $this->data['baddata']=$baddata;
+            }else{
+                
             }
             $this->load->view("login_view",$this->data);
         }

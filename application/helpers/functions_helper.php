@@ -53,3 +53,15 @@ if ( ! function_exists('removeBadChar')){
             return str_replace($arrayBad, $arrayGood, $string);
         }
 }
+
+if ( ! function_exists('detect_ie')){
+    
+        function detect_ie()
+        {
+            if (isset($_SERVER['HTTP_USER_AGENT']) && 
+            (strpos($_SERVER['HTTP_USER_AGENT'], 'MSIE') !== false))
+                return true;
+            else
+                return false;
+        }
+}

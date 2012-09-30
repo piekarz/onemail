@@ -33,6 +33,18 @@
                        if(!isset($nochoose)){
                            //Check if there are some emails in mailbox
                              if($emails!=false){
+                             echo'<a href="'.base_url('main/mailbox/').'" class="pagebutton">1</a> 
+                                  <a href="'.base_url('main/mailbox/2').'" class="pagebutton">2</a> 
+                                  <a href="'.base_url('main/mailbox/3').'" class="pagebutton">3</a> ... ';
+                                  if(1!=$thispage and 2!=$thispage and ($numberpages-1)!=$thispage and $numberpages!=$thispage){
+                                        echo'<a href="'.base_url('main/mailbox/'.($thispage-1)).'" class="pagebutton">'.($thispage-1).'</a> 
+                                             <a href="'.base_url('main/mailbox/'.$thispage).'" class="pagebutton">'.($thispage).'</a> 
+                                             <a href="'.base_url('main/mailbox/'.($thispage+1)).'" class="pagebutton">'.($thispage+1).'</a> ... ';
+
+                                  }
+                                  echo'<a href="'.base_url('main/mailbox/'.($numberpages-2)).'" class="pagebutton">'.($numberpages-2).'</a> 
+                                  <a href="'.base_url('main/mailbox/'.($numberpages-1)).'" class="pagebutton">'.($numberpages-1).'</a> 
+                                  <a href="'.base_url('main/mailbox/'.$numberpages).'" class="pagebutton">'.($numberpages).'</a><br /><br />';
                              echo '<table class="bordered">
                                     <tr>
                                     <th>'.lang('date').'</th>

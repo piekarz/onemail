@@ -111,8 +111,11 @@ class MailLib  {
         return $this->emails;
     }
     function numberOfPages(){
-        $numbermsg=imap_num_msg($this->imbox);
-        return round($numbermsg/20);
+        $numbermsg=imap_num_msg($this->inbox);
+        if(($numbermsg%20) > 0)
+            return ceil($numbermsg/20);
+        else 
+            return round($numbermsg/20);
     }
     
      /**

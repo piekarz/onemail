@@ -71,9 +71,9 @@ float:right;
   display: block;
   padding: 8px 20px 8px 20px;
   margin: 0;
-  border-radius: 10px;
   -webkit-border-radius: 10px;
   -moz-border-radius: 10px;
+  border-radius: 10px;
   text-shadow: 2px 2px 3px #000000;
 }
 #menu-bar .current a, #menu-bar li:hover > a {

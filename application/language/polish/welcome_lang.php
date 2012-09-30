@@ -2,7 +2,6 @@
 $lang['hello']              ="Witaj, z menu po lewej stronie wybierz skrzynkę pocztową, którą chcesz przejżeć. Jeśli nie ma tam żadnej skrzynki wejdź w ustawienia i dodaj nowe konto email.";
 $lang['noaccemails']        ="Nie masz przypisanych żadnych skrzynek mailowych do konta!";
 $lang['badpage']            ="Podano zły numer strony!";
-$lang['mailbox']            ="Skrzynka";
 $lang['badmailid']          ="Podano zły numer emaila!";
 $lang['nochoose']           ="Nie wybrałeś skrzynki mailowej!";
 $lang['noconn']             ="Nie można ustalić połączenia z serwerem poczty! Sprawdź czy dane do konta są prawidłowe!";
