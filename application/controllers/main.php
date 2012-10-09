@@ -42,7 +42,6 @@ class Main extends CI_Controller {
             $emailRow=$this->session->userdata('emaildb');
             //Check if email was choose from list
             if(is_object($emailRow)){
-//                try{
                     $connection=$this->maillib->connect($emailRow->memail,$emailRow->mpassword,$emailRow->imapserv,$emailRow->portimap);
                     if($connection!=false){
                             $tabemail=$this->maillib->getHeadersList($page);
@@ -50,15 +49,13 @@ class Main extends CI_Controller {
                             $data['emails']=$tabemail;
                             $data['header']=lang('mailbox');
                             //echo $this->maillib->numberOfPages();
-                            $this->maillib->close();}
+                            //$this->session->set_userdata('conn',$this->maillib->returnCurrentConn());
+                            }
                             
                         else {
                             $data['nochoose']='noconn';
                             
                         }
-//                }catch(Exception $e){
-//                    $data['nochoose']=$e;
-//                }
             }else $data['nochoose']='nochoose';
             $this->load->view("main_view", $data);
         }

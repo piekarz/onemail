@@ -16,7 +16,6 @@
         <link rel="stylesheet" type="text/css" href="<?php echo base_url("application/views/css/style.css");?>" />
         <link rel="stylesheet" type="text/css" href="<?php echo base_url("application/views/css/menu.css");?>" />
         <script src="<?php echo base_url("application/views/js/jquery.js");?>" type="text/javascript"></script>
-        <script src="<?php echo base_url("application/views/js/iframesize.js");?>" type="text/javascript"></script>
         <script src="<?php echo base_url("application/views/js/jquery-main.js");?>" type="text/javascript"></script>
      </head>
     <body>

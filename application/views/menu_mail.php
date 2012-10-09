@@ -17,7 +17,7 @@ $emails=$this->session->userdata('emails');
 
         <ul class="leftmenu">
                         <li ><a href="'.base_url('main/mailbox').'" >'.lang('mailbox').'</a></li>
-                        <li ><a href="'.base_url('main/write').'">'.lang('write').'</a></li>
+                        <li ><a href="'.base_url('write').'">'.lang('write').'</a></li>
                 </ul>
                 <div class="leftecho"></div>
     ';

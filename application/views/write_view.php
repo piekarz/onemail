@@ -16,9 +16,9 @@
         <link rel="stylesheet" type="text/css" href="<?php echo base_url("application/views/css/style.css");?>" />
         <link rel="stylesheet" type="text/css" href="<?php echo base_url("application/views/css/menu.css");?>" />
         <script src="<?php echo base_url("application/views/js/jquery.js");?>" type="text/javascript"></script>
-        <script src="<?php echo base_url("application/views/js/iframesize.js");?>" type="text/javascript"></script>
         <script src="<?php echo base_url("application/views/js/jquery-main.js");?>" type="text/javascript"></script>
-     </head>
+        <script src="<?php echo base_url("application/views/js/jquery.textareaexpander.js");?>" type="text/javascript"></script>
+    </head>
     <body>
         <div id="wrapper2">
             <section id="head">
@@ -26,24 +26,18 @@
             </section>
                 <section id="contentbg">
                     <article id="main">
-                        <?php
-                            if($email==null or $email==false){
-                                echo '<h4 class="alert_error">'.lang('badmailid').'</h4>';
-                            }else{
-                                echo '<div class="emailshow"><h4 class="subject"><span class="bold">'.lang("subject").': </span>'.$email['subject']."<br />";
-                                echo '<span class="bold">'.lang('from').': </span>'.$email['sender']."<br />";
-                                echo '<span class="bold">'.lang("recipment").': </span>'.$email['recipient']."<br />"; 
-                                echo '<span class="bold">'.lang("date").': </span>'.date('d-m-Y G:i',$email['date'])."<br />";
-                                echo '<span class="bold">'.lang("body").': </span></h4><br/>'.$email['body']."<br />";
-                                echo '<h4 class="subject"><span class="bold">'.lang("attachments").': </span>';
-                                if($email['attachments']!=null){
-                                    foreach ($email['attachments'] as $attachments)
-                                        echo $attachments;                           
-                                        }else echo lang('noattachments');
-                                echo"</h4><br /></div>";
-                            }
-                            ?>
-                     
+                        <?php if(true==$selectedemail){ ?>
+                            <form method="post" action="'.base_url('settings/add').'">
+                                <table class="write">
+                                    <tr><td><?php echo lang('from'); ?>:</td><td><?php echo $email->memail;  ?></td></tr>
+                                    <tr><td><?php echo lang('recipment');?>:</td><td><input class="inputwrite" type="text" name="recipment"/></td></tr>
+                                    <tr><td><?php echo lang('subject');?>:</td><td><input class="inputwrite" type="text" name="subject"/></td></tr>
+                                    <tr><td colspan="2" >bbcode</td></tr>
+                                    <tr><td colspan="2"><textarea type="text" class="writebody" name="body"></textarea></td></tr>
+                                </table>
+                            </form>
+                        <? }else echo '<h4 class="alert_warning">'.lang('nochoose').'</h4>'; ?>
+                        
                     </article>
                     <aside id="main">
                         <?php require_once('/application/views/menu_mail.php'); ?>

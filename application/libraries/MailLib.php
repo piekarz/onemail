@@ -142,7 +142,7 @@ class MailLib  {
         $email['date'] = $header->udate;
         $email['body'] = $this->getBody($email_id);
         $email['attachments']= $this->getAttachments($email_id);
-      
+     
         return $email;
     }
     
@@ -385,6 +385,7 @@ class MailLib  {
        if(!$structure) {
            $structure = imap_fetchstructure($stream, $msg_number);
        }
+       echo $structure->encoding;
        if($structure) {
            if($mime_type == $this->get_mime_type($structure)) {
                if(!$part_number) {

@@ -27,7 +27,7 @@ class Ajaxactions extends CI_Controller {
                 $this->session->set_userdata('emaildb',$emailRow);
             }else{
                 redirect(base_url('main'));
-            } 
+            }
             redirect(base_url('main'));
         }
 }
