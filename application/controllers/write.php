@@ -26,6 +26,30 @@ class Write extends CI_Controller {
                    $this->data['selectedemail']=false; 
                 $this->load->view("write_view",$this->data);
 	}
-        
+        public function send(){
+            if(isset($_POST['send'])){
+                $emaildb = $this->session->userdata('emaildb');
+                 $config = Array(
+                    'protocol' => 'smtp',
+                    'smtp_host' => $emaildb->smtpserv,
+                    'smtp_port' => $emaildb->portsmtp,
+                    'smtp_user' => $emaildb->memail,
+                    'smtp_pass' => $emaildb->mpassword,
+                    'mailtype'  => 'html', 
+                    'charset'   => 'utf-8'
+                );
+                 //echo print_r($config);
+                 $this->email->initialize($config);
+                 $this->email->set_newline("\r\n");
+                 $this->email->from($emaildb->memail, $_POST['signature']);
+                 $this->email->to($_POST['recipment']);  
+                 $this->email->subject($_POST['subject']);  
+                 $this->email->message($_POST['body']);
+                 $this->data['result']= $this->email->send();
+                 //echo $this->email->print_debugger();
+                 $this->load->view("write_view",$this->data);
+                
+            }else redirect(base_url('write'));
+        }
 }
 

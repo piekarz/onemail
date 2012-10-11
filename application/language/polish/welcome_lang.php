@@ -5,6 +5,8 @@ $lang['badpage']            ="Podano zły numer strony!";
 $lang['badmailid']          ="Podano zły numer emaila!";
 $lang['nochoose']           ="Nie wybrałeś skrzynki mailowej!";
 $lang['noconn']             ="Nie można ustalić połączenia z serwerem poczty! Sprawdź czy dane do konta są prawidłowe!";
+$lang['emailsent']          ="Wiadomość została wysłana!";
+$lang['emailnotsent']       ="Wiadomość nie została wysłana!";
 
 //Email show:
 $lang['from']               ="Od";
@@ -16,6 +18,7 @@ $lang['body']               ="Treść";
 $lang['recipment']          ="Adresat";
 $lang['attachments']        ="Załączniki";
 $lang['noattachments']      ="Brak załączników";
+$lang['signature']          ="Podpis";
 
 //Settings
 $lang['smtpserv']           ="Serwer SMTP";
@@ -30,3 +33,6 @@ $lang['successaddemail']    ="Pomyślnie dodano konto email!";
 $lang['success_em_edit']    ="Dane konta email zostały zaktualizowane!";
 $lang['emailexist']         ="Ktoś już posiada takie konto email! Jeśli to twoje konto skontaktuj się z administratorem.";
 $lang['h_addaccount']       ="Dodaj Email";
+
+//Write
+$lang['send']               ="Wyślij";

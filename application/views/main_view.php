@@ -21,7 +21,9 @@
     <body>
         <div id="wrapper2">
             <section id="head">
-                <header id="main"></header><nav id="main"><?php require_once('/application/views/menu.php'); ?></nav>
+                <header id="main"></header><nav id="main"><?php require_once('/application/views/menu.php');                 ?>
+                
+                </nav>
             </section>
                 <section id="contentbg">
                     <article id="main">

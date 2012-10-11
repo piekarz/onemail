@@ -385,7 +385,6 @@ class MailLib  {
        if(!$structure) {
            $structure = imap_fetchstructure($stream, $msg_number);
        }
-       echo $structure->encoding;
        if($structure) {
            if($mime_type == $this->get_mime_type($structure)) {
                if(!$part_number) {

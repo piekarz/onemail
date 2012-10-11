@@ -26,17 +26,24 @@
             </section>
                 <section id="contentbg">
                     <article id="main">
-                        <?php if(true==$selectedemail){ ?>
-                            <form method="post" action="'.base_url('settings/add').'">
+                        <?php if(!isset($result)){
+                                if(true==$selectedemail){ ?>
+                            <form method="post" action="<?php echo base_url('write/send'); ?>">
                                 <table class="write">
                                     <tr><td><?php echo lang('from'); ?>:</td><td><?php echo $email->memail;  ?></td></tr>
+                                    <tr><td><?php echo lang('signature');?>:</td><td><input class="inputwrite" type="text" name="signature"/></td></tr>
                                     <tr><td><?php echo lang('recipment');?>:</td><td><input class="inputwrite" type="text" name="recipment"/></td></tr>
                                     <tr><td><?php echo lang('subject');?>:</td><td><input class="inputwrite" type="text" name="subject"/></td></tr>
                                     <tr><td colspan="2" >bbcode</td></tr>
                                     <tr><td colspan="2"><textarea type="text" class="writebody" name="body"></textarea></td></tr>
+                                    <tr><td><input class="button-link" type="submit" name="send" value="<?php echo lang('send')?>"/></td><td></td></tr>
                                 </table>
                             </form>
-                        <? }else echo '<h4 class="alert_warning">'.lang('nochoose').'</h4>'; ?>
+                        <? }else echo '<h4 class="alert_warning">'.lang('nochoose').'</h4>'; }
+                        else{ 
+                            if(1==$result)echo '<h4 class="alert_success">'.lang('emailsent').'</h4>';
+                            else echo '<h4 class="alert_warning">'.lang('emailnotsent').'</h4>';
+                        }?>
                         
                     </article>
                     <aside id="main">

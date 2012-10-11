@@ -25,9 +25,6 @@ class Mailshow extends CI_Controller {
                     $this->maillib->connect($emailRow->memail,$emailRow->mpassword,$emailRow->imapserv,$emailRow->portimap);
                     $email=$this->maillib->getMail($id);
                     if($email!=false){
-                    //$email['body']=quoted_printable_decode($email['body']);    
-                    //$email['body']=mb_convert_encoding($email['body'],'UTF-8');
-//                    if(mb_detect_encoding($email['body'])!='UTF-8')
                         $email['body']=iconv(mb_detect_encoding($email['body']),'UTF-8//IGNORE',$email['body']);
                         }
                     $email['body']=transformHtmlTags($email['body']);

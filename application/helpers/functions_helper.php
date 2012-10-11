@@ -73,8 +73,8 @@ if ( ! function_exists('transformHtmlTags')){
         //$delete = '/([\s]+)('.$tagsDelete.')([\s]*)=([\s]*)(("|\')([^"\']+)("|\')|([^>"\']+))*/';
         $allowable_tags='<p><span><br><img><a><style>';
         //$text = preg_replace($delete, '', $text);
-        $text = preg_replace('/(?<!\")(http(s)?:\/\/\S+)(?=\n)/', '<a href="$1">$1</a>', $text);
-        $arrayDelete = array('<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-2" />','<head>','</head>');
+        $text = preg_replace('/(?<!\")(http(s)?:\/\/\S+)(?=\n)/', '<a href="$1" target="_blank">$1</a>', $text);
+        $arrayDelete = array('<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-2" />','<head>','</head>','<html>','</html>','<body>','</body>','body','<HEAD>','</HEAD>','<HTML>','</HTML>','<BODY>','</BODY>');
         $text = str_replace($arrayDelete, '', $text);
         return$text;// strip_tags($text, $allowable_tags);
     }

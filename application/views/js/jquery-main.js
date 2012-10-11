@@ -1,5 +1,5 @@
 $(document).ready(function() {
-$("textarea.writebody").TextAreaExpander();
+  
 $("select.emaillist").change(function() {
     
     $("select option:selected").each(function () {
@@ -48,4 +48,5 @@ $(this).parent().next('.droptableshow').toggle('100');
 return false;
  
 });
+$("textarea.writebody").TextAreaExpander();
 });
