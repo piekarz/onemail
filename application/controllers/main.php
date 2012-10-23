@@ -56,8 +56,6 @@ class Main extends CI_Controller {
                             $data['numberpages']=$this->maillib->numberOfPages();
                             $data['emails']=$tabemail;
                             $data['header']=lang('mailbox');
-                            //echo $this->maillib->numberOfPages();
-                            //$this->session->set_userdata('conn',$this->maillib->returnCurrentConn());
                             }
                             
                         else {
