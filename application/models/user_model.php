@@ -18,6 +18,7 @@ class User_model extends CI_Model {
     var     $session;
     var     $active;
     var     $lastip;
+    var     $passwordkey;
     
     function __construct()
     {
@@ -32,13 +33,22 @@ class User_model extends CI_Model {
         return $query->result();
     }
     /*
-     * This method create new user
+     * This search user by conditions
      */
     function get_user_where($where){
         $this->db->where($where);
         $query = $this->db->get('user');
         return $query->result();
     }
+    /*
+     * This methot search user by id
+     */
+    function get_user_by_id($id){
+        $this->db->where(array('iduser'=>$id));
+        $query = $this->db->get('user');
+        return $query->result();
+    }
+    
     function insert_user($login, $password, $email, $lang, $session, $active, $lastip)
     {
         $this->login = $login;
@@ -48,6 +58,7 @@ class User_model extends CI_Model {
         $this->session = $session;
         $this->active = $active;
         $this->lastip = $lastip;
+        $this->passwordkey=generateRandomKey();
         //Insert
         $this->db->insert('user', $this);
     }
@@ -78,7 +89,7 @@ class User_model extends CI_Model {
         return false; 
     }
     
-        function getonequery($query){
+    function getonequery($query){
             foreach($query->result() as $q){
             $this->iduser = $q->iduser;
             break;

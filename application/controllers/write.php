@@ -12,6 +12,7 @@ class Write extends CI_Controller {
             $this->lang->load('login',$this->language);
             $this->lang->load('global',$this->language);
             $this->load->model('User_model');
+            $this->load->model('Email_model');
             if(!$this->session->userdata('logged_in')) redirect(base_url());
             $this->data['header']=lang('write');
             //print_r($this->session->all_userdata());
@@ -21,14 +22,29 @@ class Write extends CI_Controller {
                 
                 if(''!=$this->session->userdata('selectedemail')){
                     $this->data['selectedemail']=true;
-                    $this->data['email']=$this->session->userdata('emaildb');
+                    //get email and decrypt password
+                        $emailModel = new Email_model();
+                        $email = $emailModel->get_email_where(array('memail'=>$this->session->userdata('selectedemail')));
+                        $userModel = new User_model();
+                        $user = $userModel->get_user_by_id($this->session->userdata('iduser'));
+                        $emailRow=$email[0];
+                        $emailRow->mpassword = decrypt($user[0]->passwordkey, $emailRow->mpassword);
+                    $this->data['email']=$emailRow;
                 }else
                    $this->data['selectedemail']=false; 
                 $this->load->view("write_view",$this->data);
 	}
         public function send(){
             if(isset($_POST['send'])){
-                $emaildb = $this->session->userdata('emaildb');
+                
+                 //get email and decrypt password
+                        $emailModel = new Email_model();
+                        $email = $emailModel->get_email_where(array('memail'=>$this->session->userdata('selectedemail')));
+                        $userModel = new User_model();
+                        $user = $userModel->get_user_by_id($this->session->userdata('iduser'));
+                        $emailRow=$email[0];
+                        $emailRow->mpassword = decrypt($user[0]->passwordkey, $emailRow->mpassword);
+                 $emaildb = $emailRow;
                  $config = Array(
                     'protocol' => 'smtp',
                     'smtp_host' => $emaildb->smtpserv,
@@ -38,7 +54,6 @@ class Write extends CI_Controller {
                     'mailtype'  => 'html', 
                     'charset'   => 'utf-8'
                 );
-                 //echo print_r($config);
                  $this->email->initialize($config);
                  $this->email->set_newline("\r\n");
                  $this->email->from($emaildb->memail, $_POST['signature']);

@@ -9,8 +9,7 @@
         <meta charset="UTF-8" />
         <!-- <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">  -->
         <title><?php echo $header;?></title>
-        <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
-        <meta name="author" content="Codrops" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link rel="stylesheet" type="text/css" href="<?php echo base_url("application/views/css/main.css");?>" />
         <link rel="stylesheet" type="text/css" href="<?php echo base_url("application/views/css/demo.css");?>" />
         <link rel="stylesheet" type="text/css" href="<?php echo base_url("application/views/css/style.css");?>" />

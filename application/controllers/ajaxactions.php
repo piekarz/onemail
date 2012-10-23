@@ -20,11 +20,11 @@ class Ajaxactions extends CI_Controller {
             if(isset($_POST['email'])){
                 $this->maillib->close();
                 $this->session->set_userdata('selectedemail',$_POST['email']);                
-                $where = array('memail'=>$this->session->userdata('selectedemail'));
-                $emailModel = new Email_model();
-                $result=$emailModel->get_email_where($where);
-                $emailRow=getDataOfOneRow($result);
-                $this->session->set_userdata('emaildb',$emailRow);
+//                $where = array('memail'=>$this->session->userdata('selectedemail'));
+//                $emailModel = new Email_model();
+//                $result=$emailModel->get_email_where($where);
+//                $emailRow=getDataOfOneRow($result);
+//                $this->session->set_userdata('emaildb',$emailRow);
             }else{
                 redirect(base_url('main'));
             }

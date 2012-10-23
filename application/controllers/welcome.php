@@ -14,7 +14,6 @@ class Welcome extends CI_Controller {
         }
 	public function index()
 	{
-                //$this->User_model->insert_user('test','hastpassworda','email@email.com','en','123123123123','1','127.0.0.1');
             if($this->session->userdata('logged_in')) redirect(base_url('main'));    
             $data['header'] = lang("global_header");
             $this->load->view("welcome_view",$data);

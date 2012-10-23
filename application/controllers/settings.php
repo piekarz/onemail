@@ -19,10 +19,11 @@ class Settings extends CI_Controller {
             $this->userModel = new User_model();
         }
 	public function index()
-	{      
+	{   
             $data['warning']='';
             $data['success']='';
             $data['dtshowid']='';
+ 
             //Delete email
             if( isset($_POST['delete'])){
                 
@@ -36,11 +37,11 @@ class Settings extends CI_Controller {
                     break;
                  }
                 //Then set email object from db to session
-                $where = array('memail'=>$this->session->userdata('selectedemail'));
-                $emailModel = new Email_model();
-                $result=$emailModel->get_email_where($where);
-                $emailRow=getDataOfOneRow($result);
-                $this->session->set_userdata('emaildb',$emailRow);
+//                $where = array('memail'=>$this->session->userdata('selectedemail'));
+//                $emailModel = new Email_model();
+//                $result=$emailModel->get_email_where($where);
+//                $emailRow=getDataOfOneRow($result);
+//                $this->session->set_userdata('emaildb',$emailRow);
             } //Edit Email
             elseif( isset($_POST['edit'])){
                 $data['dtshowid']=$_POST['idemail'];
@@ -62,16 +63,27 @@ class Settings extends CI_Controller {
                     //I unset postvariables to give model array $_POST
                     unset($_POST['idemail']);
                     unset($_POST['edit']);
+                    $emailtoupdate=$_POST;
+                    $emailfromdb=$this->emailModel->get_email_where(array('idemail'=>$idemail));
+                    
+                    //Set previous password if wasn't change
+                    if($emailtoupdate['mpassword']=='')$emailtoupdate['mpassword']=$emailfromdb[0]->mpassword;
+                    //Set new password if was change
+                    else {
+                        $user=$this->userModel->get_user_by_id($this->session->userdata('iduser'));
+                        $emailtoupdate['mpassword'] =  encrypt($user[0]->passwordkey, $emailtoupdate['mpassword']);
+                        }
+                    
                     //Update edited email
-                    $this->emailModel->update_email($_POST, $idemail);
+                    $this->emailModel->update_email($emailtoupdate, $idemail);
                     //Update session data
                     $tab=$this->session->userdata('emails');
                     $tab[$idemail]=$_POST['memail'];
                     $this->session->set_userdata('emails',$tab);
-                    $where=array('idemail'=>$idemail);
-                    $result=$this->emailModel->get_email_where($where);
-                    $emailRow=getDataOfOneRow($result);
-                    $this->session->set_userdata('emaildb',$emailRow);
+//                    $where=array('idemail'=>$idemail);
+//                    $result=$this->emailModel->get_email_where($where);
+//                    $emailRow=getDataOfOneRow($result);
+//                    $this->session->set_userdata('emaildb',$emailRow);
                     //Choose first email from list in session and set as selected
                     foreach($this->session->userdata('emails') as $email){
                         $this->session->set_userdata('selectedemail',$email);
@@ -109,8 +121,15 @@ class Settings extends CI_Controller {
                 if(!is_numeric($_POST['portsmtp']) or !is_numeric($_POST['portimap']))$data['warning']=$data['warning'].lang('portnummustbnum').'<br />';
                 //If ok then add email
                 if($data['warning']==''){
-                    $this->emailModel->insert_email($this->session->userdata('iduser'),$_POST['memail'] , $_POST['mpassword'], $_POST['portimap'], $_POST['portsmtp'], $_POST['imapserv'], $_POST['smtpserv']);
+                    //get a key for encrypt
+                    $user=$this->userModel->get_user_by_id($this->session->userdata('iduser'));
+                    //encrypt password
+                    $empassword=encrypt($user[0]->passwordkey, $_POST['mpassword']);
+                    
+                    //add new email to database
+                    $this->emailModel->insert_email($this->session->userdata('iduser'),$_POST['memail'] , $empassword, $_POST['portimap'], $_POST['portsmtp'], $_POST['imapserv'], $_POST['smtpserv']);
                     $data['success']=lang('successaddemail');
+                    
                     //Add email to leftmenu list
                     $tab=$this->session->userdata('emails');
                     $email=$this->emailModel->get_email_where(array('memail'=>$_POST['memail']));

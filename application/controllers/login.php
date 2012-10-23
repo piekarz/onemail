@@ -42,7 +42,7 @@ class Login extends CI_Controller {
             //If user is loggedin redirect
             if($this->session->userdata('logged_in')) redirect(base_url('main'));
             //Check data from login form with database
-            if($this->User_model->check_user($_POST['username'],  sha1($_POST['password']) )){ 
+            if($this->User_model->check_user($_POST['username'],  hash('sha256',$_POST['password'].getPasswordSalt()) )){ 
                 //Set session data
                 $this->session->set_userdata('username', $_POST['username']);
                 $this->session->set_userdata('logged_in',TRUE);
@@ -84,7 +84,7 @@ class Login extends CI_Controller {
                 
              //IF everything is ok then add new user!
                 if(''==$baddata) {
-                    $this->User_model->insert_user($_POST['username'],sha1($_POST['password']),$_POST['email'],$this->language,'',1,$_SERVER['REMOTE_ADDR']);
+                    $this->User_model->insert_user($_POST['username'],hash('sha256',$_POST['password'].getPasswordSalt()),$_POST['email'],$this->language,'',1,$_SERVER['REMOTE_ADDR']);
                     $this->data['success']=lang('r_useradded');
                 }
                 $this->data['baddata']=$baddata;

@@ -12,15 +12,22 @@ class Mailshow extends CI_Controller {
             $this->lang->load('login',$this->language);
             $this->lang->load('global',$this->language);
             $this->load->model('User_model');
+            $this->load->model('Email_model');
             if(!$this->session->userdata('logged_in')) redirect(base_url());
         }
 	public function index($id)
-	{       
+	{                      
                 $data['header']=lang('email');
                 if($id==null){
                     $data['email']=null;
                 }else{
-                    $emailRow=$this->session->userdata('emaildb');
+                    //get email and decrypt password
+                        $emailModel = new Email_model();
+                        $email = $emailModel->get_email_where(array('memail'=>$this->session->userdata('selectedemail')));
+                        $userModel = new User_model();
+                        $user = $userModel->get_user_by_id($this->session->userdata('iduser'));
+                        $emailRow=$email[0];
+                        $emailRow->mpassword = decrypt($user[0]->passwordkey, $emailRow->mpassword);
                     
                     $this->maillib->connect($emailRow->memail,$emailRow->mpassword,$emailRow->imapserv,$emailRow->portimap);
                     $email=$this->maillib->getMail($id);

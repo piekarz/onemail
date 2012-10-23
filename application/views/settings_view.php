@@ -10,7 +10,6 @@
         <!-- <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">  -->
         <title><?php echo $header;?></title>
         <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
-        <meta name="author" content="Codrops" />
         <link rel="stylesheet" type="text/css" href="<?php echo base_url("application/views/css/main.css");?>" />
         <link rel="stylesheet" type="text/css" href="<?php echo base_url("application/views/css/demo.css");?>" />
         <link rel="stylesheet" type="text/css" href="<?php echo base_url("application/views/css/style.css");?>" />
@@ -67,7 +66,7 @@
                                                         <tr><td>'.lang('portimap').':</td><td><input type="number" name="portimap" min="0" max="65535" pattern="[0-9]{1,5}" required="required" value="'.$email->portimap.'" /></td></tr>
                                                         <tr><td>'.lang('smtpserv').':</td><td><input type="text" name="smtpserv" required="required" value="'.$email->smtpserv.'" /></td></tr>
                                                         <tr><td>'.lang('portsmtp').':</td><td><input type="number" name="portsmtp" min="0" max="65535" pattern="[0-9]{1,5}" required="required" value="'.$email->portsmtp.'" /></td></tr>
-                                                        <tr><td><input class="button-link" type="submit" name="delete" value="'.lang('delete').'"/><input class="button-link" type="submit" name="edit" value="'.lang('edit').'"/></td><td><input type="hidden" name="idemail" value="'.$email->idemail.'"/></td></tr>
+                                                        <tr><td><input class="button-link" type="submit" name="edit" value="'.lang('edit').'"/><input class="button-link" type="submit" name="delete" value="'.lang('delete').'"/></td><td><input type="hidden" name="idemail" value="'.$email->idemail.'"/></td></tr>
                                                         </form>
                                                 </table>
                                                 ';

@@ -76,7 +76,8 @@ article#welcome {
 /* STYLE FOR PAGES - REGISTRED USERS */
 #wrapper2 { 
  margin-left: 10px;
- width: 1000px;
+ width: 90%;
+ min-width: 1000px;
  float: left;
  border-width:0px;
 }
@@ -84,14 +85,16 @@ header#main{
  color: #3b5c60;
  display: block;
  float: left;
- width: 200px;
+ width: 20%;
+ min-width: 200px;
  padding: 0px;
  height: 95px;
  margin: 10px 0px 0px 0px;
  background: transparent url(/mgr/application/views/images/logomain.png) no-repeat left;
 }
 nav#main{
- width: 800px;
+ width: 80%;
+ min-width: 800px;
  display: block;
  float: right;
  padding: 0px;
@@ -125,7 +128,8 @@ article#main {
     padding: 10px;
     display: block;
     float: right;
-    width: 800px;
+    width: 80%;
+    min-width: 800px;
     border-left: #144976 2px solid;
     min-height: 200px;
 }
@@ -142,7 +146,8 @@ h3 {
 footer#main{
     clear: both;
     display: block;
-    width: 980px;
+    width: auto;
+    min-width: 980px;
     padding: 10px;
     text-align: center;
     border-top: #144976 2px solid;
@@ -167,6 +172,7 @@ table {
 }
 
 .bordered {
+    width: 100%;
     background-color: rgba(0,0,0,0.2);
     border: solid #144976 1px;
     -moz-border-radius: 6px;

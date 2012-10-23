@@ -79,3 +79,49 @@ if ( ! function_exists('transformHtmlTags')){
         return$text;// strip_tags($text, $allowable_tags);
     }
 }
+
+
+/*
+ * Functions for crypt data
+ */
+
+//Salt for user passwords
+if ( ! function_exists('getPasswordSalt')){
+    
+        function getPasswordSalt()
+        {
+            return'96b3f8d0ea77a6f309598cf06f7a03ff81b9811aa9779bc6adec943d7739ffd6';
+        }
+}
+
+//Random Keys generate
+if ( ! function_exists('generateRandomKey')){
+    
+        function generateRandomKey()
+        {
+            $alphas = array_merge(range('A', 'Z'), range('a', 'z'));
+            $random='';
+            for($i=32;$i!=0;$i--){
+                $random=$random.$alphas[rand(0, ( count( $alphas ) - 1 ) )];
+            }
+            return md5($random);
+        }
+}
+
+//Encrypt data
+if ( ! function_exists('encrypt')){
+    
+        function encrypt($key,$data)
+        {
+            return mcrypt_encrypt(MCRYPT_RIJNDAEL_256, $key, $data, MCRYPT_MODE_ECB);
+        }
+}
+
+//Decrypt data
+if ( ! function_exists('decrypt')){
+    
+        function decrypt($key, $data)
+        {
+            return mcrypt_decrypt ( MCRYPT_RIJNDAEL_256, $key , $data , MCRYPT_MODE_ECB);
+        }
+}
