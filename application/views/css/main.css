@@ -75,10 +75,9 @@ article#welcome {
 
 /* STYLE FOR PAGES - REGISTRED USERS */
 #wrapper2 { 
- margin-left: 10px;
+ margin: 0 auto;
  width: 90%;
  min-width: 1000px;
- float: left;
  border-width:0px;
 }
 header#main{
@@ -485,11 +484,14 @@ line-height: 20px;}
     -moz-border-radius: 10px;
     border-radius: 10px;
 }
-.addtable input{
+.addtable input,select{
     padding: 5px;
     -webkit-border-radius: 5px;
     -moz-border-radius: 5px;
     border-radius: 5px;
+    border: #203E5F 1px solid;
+    margin: 2px;
+    min-width: 150px;
 }
 
 /* WRITE CSS */

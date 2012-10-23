@@ -22,6 +22,32 @@ if ( ! function_exists('loadLang'))
                 }
 	}
 }
+if ( ! function_exists('langLess'))
+{
+	function langLess($lang)
+	{
+            switch($lang){
+                case 'polish': 
+                    return "pl";
+                    break;
+                case 'english':
+                    return "en";
+                    break;
+                default: 
+                    return "pl";
+                    break;
+                }
+	}
+}
+if ( ! function_exists('langList'))
+{
+	function langList()
+	{
+            $langlist=array(0=>'pl',
+                            1=>'en');
+            return $langlist;
+	}
+}
 
 if ( ! function_exists('sessionDataAdd')){
     
@@ -35,6 +61,7 @@ if ( ! function_exists('sessionDataAdd')){
         return $newdata;
     }
 }
+
 if ( ! function_exists('getDataOfOneRow')){
     
     function getDataOfOneRow($result){

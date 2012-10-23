@@ -32,7 +32,7 @@
                             if($success!='') echo'<h4 class="alert_success" >'.$success.'</h4>';
                             echo'
                                                 <table class="addtable"><form method="post" action="'.base_url('settings/add').'">
-                                                        <tr><th class="headth">'.lang('addemailacc').':</th><th></th></tr>
+                                                        <tr><th class="headth">'.lang('addemailacc').'</th><th></th></tr>
                                                         <tr><td>'.lang('email').':</td><td><input type="email" name="memail" required="required" placeholder="email@mail.com" value="'.$postdata['memail'].'"/></td></tr>
                                                         <tr><td>'.lang('password').':</td><td><input type="password" name="mpassword" /></td></tr>
                                                         <tr><td>'.lang('repassword').':</td><td><input type="password" name="rempassword" /></td></tr>

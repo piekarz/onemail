@@ -61,7 +61,7 @@ class Settings extends CI_Controller {
                     $emailfromdb=$this->emailModel->get_email_where(array('idemail'=>$idemail));
                     
                     //Set previous password if wasn't change
-                    if($emailtoupdate['mpassword']=='')$emailtoupdate['mpassword']=$emailfromdb[0]->mpassword;
+                    if(!isset($emailtoupdate['mpassword']))$emailtoupdate['mpassword']=$emailfromdb[0]->mpassword;
                     //Set new password if was change
                     else {
                         $user=$this->userModel->get_user_by_id($this->session->userdata('iduser'));

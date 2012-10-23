@@ -77,6 +77,12 @@ class User_model extends CI_Model {
         //Update
         $this->db->update('user', $this, $iduser);
     }
+    
+
+    function update_choosen_user($id,$array){
+        $this->db->where('iduser', $id);
+        $this->db->update('user', $array); 
+    }
     /**
      * This method check if user exist in db with that $login and hash $password
      * @param type $login

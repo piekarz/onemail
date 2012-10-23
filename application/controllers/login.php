@@ -84,7 +84,7 @@ class Login extends CI_Controller {
                 
              //IF everything is ok then add new user!
                 if(''==$baddata) {
-                    $this->User_model->insert_user($_POST['username'],hash('sha256',$_POST['password'].getPasswordSalt()),$_POST['email'],$this->language,'',1,$_SERVER['REMOTE_ADDR']);
+                    $this->User_model->insert_user($_POST['username'],hash('sha256',$_POST['password'].getPasswordSalt()),$_POST['email'],  langLess($this->language),'',1,$_SERVER['REMOTE_ADDR']);
                     $this->data['success']=lang('r_useradded');
                 }
                 $this->data['baddata']=$baddata;

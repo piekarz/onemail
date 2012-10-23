@@ -4,7 +4,7 @@
 $lang['forum']              ="Forum";
 $lang['sitemap']            ="Mapa Strony";
 $lang['account']            ="Konto";
-$lang['profile']            ="Konto OneMail";
+$lang['profile']            ="Profil";
 $lang['login']              ="Zaloguj";
 $lang['register']           ="Stwórz Konto";
 $lang['logout']             ="Wyloguj";
