@@ -29,7 +29,7 @@ class Write extends CI_Controller {
                         $user = $userModel->get_user_by_id($this->session->userdata('iduser'));
                         $emailRow=$email[0];
                         $emailRow->mpassword = decrypt($user[0]->passwordkey, $emailRow->mpassword);
-                    $this->data['email']=$emailRow;
+                        $this->data['email']=$emailRow;
                 }else
                    $this->data['selectedemail']=false; 
                 $this->load->view("write_view",$this->data);
@@ -52,7 +52,8 @@ class Write extends CI_Controller {
                     'smtp_user' => $emaildb->memail,
                     'smtp_pass' => $emaildb->mpassword,
                     'mailtype'  => 'html', 
-                    'charset'   => 'utf-8'
+                    'charset'   => 'utf-8',
+                    'smtp_crypto'=> $emaildb->smtpssl
                 );
                  $this->email->initialize($config);
                  $this->email->set_newline("\r\n");

@@ -2,7 +2,7 @@ $(document).ready(function() {
   
 $("select.emaillist").change(function() {
     
-    $("select option:selected").each(function () {
+    $("option.emaillist:selected").each(function () {
         
             $.ajax({
                     type: "POST",

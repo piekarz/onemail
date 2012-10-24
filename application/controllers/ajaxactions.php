@@ -19,6 +19,7 @@ class Ajaxactions extends CI_Controller {
             if(!$this->session->userdata('logged_in')) redirect(base_url()); 
             if(isset($_POST['email'])){
                 $this->maillib->close();
+                if(substr_count($_POST['email'],'@')==1)
                 $this->session->set_userdata('selectedemail',$_POST['email']);                
 //                $where = array('memail'=>$this->session->userdata('selectedemail'));
 //                $emailModel = new Email_model();

@@ -8,7 +8,7 @@ $emails=$this->session->userdata('emails');
         if($this->session->userdata('selectedemail')=='') echo'<option value="none">'.lang('chooseacc').'</option>';
         //show all in list
         foreach($emails as $email){ 
-          echo'<option value="'.$email.'"';
+          echo'<option class="emaillist" value="'.$email.'"';
           //if one email is selected then we mark it
           if ($email==$this->session->userdata('selectedemail')) echo' selected="selected" ';
           echo'">'.$email.'</option>';}}

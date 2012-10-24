@@ -38,8 +38,16 @@
                                                         <tr><td>'.lang('repassword').':</td><td><input type="password" name="rempassword" /></td></tr>
                                                         <tr><td>'.lang('imapserv').':</td><td><input type="text" name="imapserv" required="required" placeholder="imap.mail.com" value="'.$postdata['imapserv'].'" /></td></tr>
                                                         <tr><td>'.lang('portimap').':</td><td><input type="number" name="portimap" min="0" max="65535" pattern="[0-9]{1,5}" required="required" placeholder="993" value="'.$postdata['portimap'].'" /></td></tr>
+                                                        <tr><td>'.lang('imapssl').':</td><td><select name="imapssl">
+                                                            <option value="ssl" selected="selected">'.lang('yes').'</option>
+                                                            <option value="">'.lang('no').'</option>
+                                                        </select></td></tr>
                                                         <tr><td>'.lang('smtpserv').':</td><td><input type="text" name="smtpserv" required="required" placeholder="smtp.mail.com" value="'.$postdata['smtpserv'].'" /></td></tr>
                                                         <tr><td>'.lang('portsmtp').':</td><td><input type="number" name="portsmtp" min="0" max="65535" pattern="[0-9]{1,5}" required="required" placeholder="443" value="'.$postdata['portsmtp'].'" /></td></tr>
+                                                        <tr><td>'.lang('smtpssl').':</td><td><select name="smtpssl">
+                                                            <option value="ssl" selected="selected">'.lang('yes').'</option>
+                                                            <option value="">'.lang('no').'</option>
+                                                        </select></td></tr>
                                                         <tr><td><input class="button-link" type="submit" name="add" value="'.lang('add').'"/></td><td></td></tr>
                                                         </form>
                                                 </table>';
@@ -64,8 +72,16 @@
                                                         <tr><td>'.lang('repassword').':</td><td><input type="password" name="rempassword" /></td></tr>
                                                         <tr><td>'.lang('imapserv').':</td><td><input type="text" name="imapserv" required="required" value="'.$email->imapserv.'" /></td></tr>
                                                         <tr><td>'.lang('portimap').':</td><td><input type="number" name="portimap" min="0" max="65535" pattern="[0-9]{1,5}" required="required" value="'.$email->portimap.'" /></td></tr>
+                                                        <tr><td>'.lang('imapssl').':</td><td><select name="imapssl">
+                                                            <option value="ssl" '; if($email->imapssl=='ssl') echo'selected="selected"';   echo' >'.lang('yes').'</option>
+                                                            <option value="" '; if(!$email->imapssl=='ssl') echo'selected="selected"';   echo'>'.lang('no').'</option>
+                                                        </select></td></tr>
                                                         <tr><td>'.lang('smtpserv').':</td><td><input type="text" name="smtpserv" required="required" value="'.$email->smtpserv.'" /></td></tr>
                                                         <tr><td>'.lang('portsmtp').':</td><td><input type="number" name="portsmtp" min="0" max="65535" pattern="[0-9]{1,5}" required="required" value="'.$email->portsmtp.'" /></td></tr>
+                                                        <tr><td>'.lang('smtpssl').':</td><td><select name="smtpssl">
+                                                            <option value="ssl" '; if($email->smtpssl=='ssl') echo'selected="selected"';   echo' >'.lang('yes').'</option>
+                                                            <option value="" '; if(!$email->smtpssl=='ssl') echo'selected="selected"';   echo'>'.lang('no').'</option>
+                                                        </select></td></tr>    
                                                         <tr><td><input class="button-link" type="submit" name="edit" value="'.lang('edit').'"/><input class="button-link" type="submit" name="delete" value="'.lang('delete').'"/></td><td><input type="hidden" name="idemail" value="'.$email->idemail.'"/></td></tr>
                                                         </form>
                                                 </table>

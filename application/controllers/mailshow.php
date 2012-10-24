@@ -29,7 +29,7 @@ class Mailshow extends CI_Controller {
                         $emailRow=$email[0];
                         $emailRow->mpassword = decrypt($user[0]->passwordkey, $emailRow->mpassword);
                     
-                    $this->maillib->connect($emailRow->memail,$emailRow->mpassword,$emailRow->imapserv,$emailRow->portimap);
+                    $this->maillib->connect($emailRow->memail,$emailRow->mpassword,$emailRow->imapserv,$emailRow->portimap,$emailRow->imapssl);
                     $email=$this->maillib->getMail($id);
                     if($email!=false){
                         $email['body']=iconv(mb_detect_encoding($email['body']),'UTF-8//IGNORE',$email['body']);

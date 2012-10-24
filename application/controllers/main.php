@@ -50,7 +50,7 @@ class Main extends CI_Controller {
                     
             //Check if email was choose from list
             if(is_object($emailRow)){
-                    $connection=$this->maillib->connect($emailRow->memail,$emailRow->mpassword,$emailRow->imapserv,$emailRow->portimap);
+                    $connection=$this->maillib->connect($emailRow->memail,$emailRow->mpassword,$emailRow->imapserv,$emailRow->portimap,$emailRow->imapssl);
                     if($connection!=false){
                             $tabemail=$this->maillib->getHeadersList($page);
                             $data['numberpages']=$this->maillib->numberOfPages();

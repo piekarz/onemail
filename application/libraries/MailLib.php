@@ -29,9 +29,9 @@ class MailLib  {
     * @param    true    $ssl
     * @return   void
     */
-    function connect($username, $password, $server, $port, $ssl = true){
+    function connect($username, $password, $server, $port, $ssl){
         $this->username = $username;
-        $ssl = ($ssl == true) ? "/ssl" : '';
+        $ssl = ($ssl == 'ssl') ? "/ssl" : '';
         $hostname = "{" . $server . ":" .$port . "/imap" . $ssl ."}INBOX"; 
         
 		/*
@@ -302,6 +302,10 @@ class MailLib  {
             for ($k=0;$k<sizeof($att);$k++) {
                 if(is_array($att[$k]->parameters)){
                 if ($att[$k]->parameters[0]->value == "us-ascii" || $att[$k]->parameters[0]->value    == "US-ASCII") {
+                    //It generate bugg for some emails if I didn't use this two "ifs":
+                    if(is_array($att[$k]))
+                    if(is_object($att[$k]->parameters[1]))
+                    //End of two "ifs"
                     if ($att[$k]->parameters[1]->value != "") {
                         $selectBoxDisplay[$k] = $att[$k]->parameters[1]->value;
                     }

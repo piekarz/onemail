@@ -18,6 +18,9 @@ class Settings extends CI_Controller {
             $this->emailModel = new Email_model();
             $this->userModel = new User_model();
         }
+        /**
+         * Edit or delete choosen email
+         */
 	public function index()
 	{   
             $data['warning']='';
@@ -92,7 +95,9 @@ class Settings extends CI_Controller {
             }
             $this->load->view("settings_view",$data);
 	}
-        //Add new email
+        /**
+         * Add new email
+         */
         public function add(){
             $data['warning']='';
             $data['success']='';
@@ -117,7 +122,7 @@ class Settings extends CI_Controller {
                     $empassword=encrypt($user[0]->passwordkey, $_POST['mpassword']);
                     
                     //add new email to database
-                    $this->emailModel->insert_email($this->session->userdata('iduser'),$_POST['memail'] , $empassword, $_POST['portimap'], $_POST['portsmtp'], $_POST['imapserv'], $_POST['smtpserv']);
+                    $this->emailModel->insert_email($this->session->userdata('iduser'),$_POST['memail'] , $empassword, $_POST['portimap'], $_POST['portsmtp'], $_POST['imapserv'], $_POST['smtpserv'],$_POST['imapssl'],$_POST['smtpssl']);
                     $data['success']=lang('successaddemail');
                     
                     //Add email to leftmenu list
