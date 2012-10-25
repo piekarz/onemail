@@ -25,3 +25,4 @@ $lang['addemailacc']        ="Dodaj skrzynkę mailową";
 $lang['menu']               ="Menu";
 $lang['chooseacc']          ="Wybierz Skrzynkę";
 $lang['noacc']              ="Brak Skrzynek";
+$lang['change_email_acc']   ="Zmień Skrzynkę";

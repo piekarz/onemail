@@ -25,3 +25,4 @@ $lang['addemailacc']        ="Add new inbox";
 $lang['menu']               ="Menu";
 $lang['chooseacc']          ="Choose email account";
 $lang['noacc']              ="No accounts";
+$lang['change_email_acc']   ="Change Account";

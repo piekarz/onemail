@@ -1,25 +1,21 @@
 $(document).ready(function() {
   
-$("select.emaillist").change(function() {
-    
-    $("option.emaillist:selected").each(function () {
-        
-            $.ajax({
-                    type: "POST",
-                    url: "/mgr/ajaxactions/post_ajax",
-                    dataType: "json",
-                    data: "email="+$(this).text(),
-                    cache:false
-//                    success: 
-//                      function(data){
-//                        $("div.leftecho").text(data); 
-//                      }
-
-                    });
-                    
-    });
-        
-});
+//$("select.emaillist").change(function() {
+//    
+//    $("option.emaillist:selected").each(function () {
+//        
+//        $.post(
+//                "/mgr/ajaxactions/post_ajax", 
+//                { email: $(this).text() },
+//                function(data){
+//                    alert("Hello"); 
+//                }, 
+//                "json");
+//
+//                    
+//    });
+//        
+//});
 
 
 var is_visible = false;
