@@ -19,8 +19,7 @@ $emails=$this->session->userdata('emails');
          <input type="hidden" value="'.uri_string().'" name="uri" />
          <input class="button-link-left" type="submit" value="'.lang('change_email_acc').'" />
          </form>
-
-        <ul class="leftmenu">
+         <ul class="leftmenu">
                         <li ><a href="'.base_url('main/mailbox').'" >'.lang('mailbox').'</a></li>
                         <li ><a href="'.base_url('write').'">'.lang('write').'</a></li>
                 </ul>

@@ -132,6 +132,10 @@ article#main {
     border-left: #144976 2px solid;
     min-height: 200px;
 }
+article#main a.button-link{
+    color:#FFF; 
+    text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.7);
+}
 h3 {
     color: #02303d;
     text-transform: uppercase;
@@ -294,7 +298,7 @@ button.css3button {
 div.emailshow{
     background-color: rgba(255,255,255,1);
     display:block;
-    width: 790px;
+    width: 99%;
     padding: 5px;
     -webkit-border-radius: 5px;
     -moz-border-radius: 5px;
@@ -412,7 +416,7 @@ line-height: 20px;}
     user-select:none;
 }
 .button-link-left{
-    color: #FFF;
+    color: #d7eafe;
     margin-bottom: 5px;
     margin-left: 2px;
     padding: 5px 15px;

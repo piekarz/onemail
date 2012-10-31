@@ -72,10 +72,10 @@ if ( ! function_exists('removeBadChar')){
     
         function removeBadChar($string){
             $arrayBad = array(
-                '±','Ľ','ˇ','¶','¦','¬'
+                '±','Ľ','ˇ','¶','¦','¬','Ĺ›','Ä‡','Ĺ‚','Ä…','Ăł','Ä™'
             );
             $arrayGood = array(
-                'ą','ł','Ą','ś','Ś','Ł'
+                'ą','ł','Ą','ś','Ś','Ł','ś','ć','ł','ą','ó','ę'
             );
             return str_replace($arrayBad, $arrayGood, $string);
         }
@@ -102,7 +102,10 @@ if ( ! function_exists('transformHtmlTags')){
         //$text = preg_replace($delete, '', $text);
         $text = preg_replace('/(?<!\")(http(s)?:\/\/\S+)(?=\n)/', '<a href="$1" target="_blank">$1</a>', $text);
         $arrayDelete = array('<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-2" />','<head>','</head>','<html>','</html>','<body>','</body>','body','<HEAD>','</HEAD>','<HTML>','</HTML>','<BODY>','</BODY>');
-        $text = str_replace($arrayDelete, '', $text);
+        //$text = str_replace($arrayDelete, '', $text);
+        
+        //Repair links by adding _blank atribute ;]
+        $text=str_replace('href="', ' target="_blank" href="', $text);
         return$text;// strip_tags($text, $allowable_tags);
     }
 }

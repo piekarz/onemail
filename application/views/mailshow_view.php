@@ -28,19 +28,36 @@
                         <?php
                             if($email==null or $email==false){
                                 echo '<h4 class="alert_error">'.lang('badmailid').'</h4>';
-                            }else{
-                                echo '<div class="emailshow"><h4 class="subject"><span class="bold">'.lang("subject").': </span>'.$email['subject']."<br />";
-                                echo '<span class="bold">'.lang('from').': </span>'.$email['sender']."<br />";
-                                echo '<span class="bold">'.lang("recipment").': </span>'.$email['recipient']."<br />"; 
-                                echo '<span class="bold">'.lang("date").': </span>'.date('d-m-Y G:i',$email['date'])."<br />";
-                                echo '<span class="bold">'.lang("body").': </span></h4><br/>'.$email['body']."<br />";
-                                echo '<h4 class="subject"><span class="bold">'.lang("attachments").': </span>';
+                            }else{ 
+
+                                echo'<div class="emailshow"><h4 class="subject"><span class="bold">'.lang("subject").': </span>'.$email['subject']."<br />".
+                                '<span class="bold">'.lang('from').': </span>'.$email['sender']."<br />".
+                                '<span class="bold">'.lang("recipment").': </span>'.$email['recipient']."<br />". 
+                                '<span class="bold">'.lang("date").': </span>'.date('d-m-Y G:i',$email['date'])."<br />".
+                                '</h4><br/><br />';
+                                
+                                
+                                //Creating a file with email view:
+                                $username=$this->session->userdata('username');
+                                if ( ! write_file('./application/cache/'.$username.'.php', $email['body']))
+                                    {
+                                         echo 'Unable to write the file<br />';
+                                    }
+                                    else
+                                    {
+                                         echo'<iframe id="myframe" scrolling="no" marginwidth="0" marginheight="0" frameborder="0" vspace="0" hspace="0" style="overflow:visible; width:100%; display:none" src="'.base_url().'application/cache/'.$username.'.php'.'"></iframe>';
+                                    }
+                                    
+                            //}
+                                
+                                echo'<h4 class="subject"><span class="bold">'.lang("attachments").': </span>';
                                 if($email['attachments']!=null){
                                     foreach ($email['attachments'] as $attachments)
-                                        echo $attachments;                           
+                                        echo$attachments.", ";                           
                                         }else echo lang('noattachments');
                                 echo"</h4><br /></div>";
                             }
+
                             ?>
                      
                     </article>

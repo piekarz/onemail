@@ -20,6 +20,8 @@ class Ajaxactions extends CI_Controller {
             if(isset($_POST['email'])){
                 if(substr_count($_POST['email'],'@')==1)
                 $this->session->set_userdata('selectedemail',$_POST['email']);
+                if(strstr($_POST['uri'], 'mailshow')!=FALSE)
+                        $_POST['uri']='main/mailbox';
                 redirect(base_url($_POST['uri']));
             }else{
                 redirect(base_url($_POST['uri']));

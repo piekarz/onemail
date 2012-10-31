@@ -39,7 +39,7 @@ class Main extends CI_Controller {
         public function mailbox($page=1){
             $data['mode']='mailbox';
             $data['thispage']=$page;
-            
+            if($this->session->userdata('selectedemail')!==''){
             //get email and decrypt password
                     $emailModel = new Email_model();
                     $email = $emailModel->get_email_where(array('memail'=>$this->session->userdata('selectedemail')));
@@ -48,8 +48,7 @@ class Main extends CI_Controller {
                     $emailRow=$email[0];
                     $emailRow->mpassword = decrypt($user[0]->passwordkey, $emailRow->mpassword);
                     
-            //Check if email was choose from list
-            if(is_object($emailRow)){
+                    //Try to connect with imap
                     $connection=$this->maillib->connect($emailRow->memail,$emailRow->mpassword,$emailRow->imapserv,$emailRow->portimap,$emailRow->imapssl);
                     if($connection!=false){
                             $tabemail=$this->maillib->getHeadersList($page);
