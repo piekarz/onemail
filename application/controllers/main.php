@@ -38,6 +38,7 @@ class Main extends CI_Controller {
 	}
         public function mailbox($page=1){
             $data['mode']='mailbox';
+            $data['header']=lang('mailbox');
             $data['thispage']=$page;
             if($this->session->userdata('selectedemail')!==''){
             //get email and decrypt password

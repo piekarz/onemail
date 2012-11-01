@@ -43,7 +43,6 @@ class Mailshow extends CI_Controller {
                         $ary[] = "ISO-8859-2";
                         $enc=mb_detect_encoding($email['body'], $ary);
                         //add html with charset and css
-                        echo $enc;
                         if($enc!=FALSE)
                                 $email['body']='<html><head>
                                 <meta charset="'.$enc.'" />
@@ -60,8 +59,8 @@ class Mailshow extends CI_Controller {
                                 $replace='utf-8';
                                 $email['body']=str_replace($search, $replace, $email['body']);
                     }
-                    //iconv for utf-8 - idk why i must use it but it works!
-                    if(strstr(strtolower($email['body']),'utf-8')!==FALSE)
+                    //iconv for youtube emails - idk why i must use it but it works!
+                    if(strstr(strtolower($email['sender']),'youtube.com')!==FALSE)
                         $email['body'] = iconv('', 'UTF-8//IGNORE', $email['body']);
                 
                     $email['body']=transformHtmlTags($email['body']);

@@ -21,7 +21,7 @@
     <body>
         <div id="wrapper2">
             <section id="head">
-                <header id="main"></header><nav id="main"><?php require_once('/application/views/menu.php'); ?></nav>
+                <header id="main"></header><nav id="main"><?php require_once('application/views/menu.php'); ?></nav>
             </section>
                 <section id="contentbg">
                     <article id="main">
@@ -46,7 +46,7 @@
                         
                     </article>
                     <aside id="main">
-                        <?php require_once('/application/views/menu_mail.php'); ?>
+                        <?php require_once('application/views/menu_mail.php'); ?>
                     </aside>
                     <footer id="main"><?php echo lang("global_footer") ?></footer>
                 </section>

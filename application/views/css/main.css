@@ -6,7 +6,7 @@ body {
  font-size: 13px;
  background-color: white;
  background-repeat: no-repeat;
- background-image: url(/mgr/application/views/images/back.png);
+ background-image: url(../images/back.png);
 }
 a:link, a:visited {
 color: #02303d;
@@ -30,7 +30,7 @@ header#welcome {
  padding: 0px;
  height: 180px;
  margin: 10px 0px 0px 0px;
- background: transparent url(/mgr/application/views/images/onemail.png) no-repeat;
+ background: transparent url(../images/onemail.png) no-repeat;
  
 }
 nav#welcome {
@@ -62,14 +62,14 @@ footer#welcome {
 .clear { clear: both; background: none; }
 
 article#welcome { 
-    background:url(/mgr/application/views/images/article2.png) center top repeat-y;
+    background:url(../images/article2.png) center top repeat-y;
     padding-left: 30px;
     padding-top: 0px;
     padding-right: 10px;
     padding-bottom: 10px;
 }
 .articletop{
-    background:url(/mgr/application/views/images/article1.png) center top no-repeat;
+    background:url(../images/article1.png) center top no-repeat;
     height: 54px;
 }
 
@@ -89,7 +89,7 @@ header#main{
  padding: 0px;
  height: 95px;
  margin: 10px 0px 0px 0px;
- background: transparent url(/mgr/application/views/images/logomain.png) no-repeat left;
+ background: transparent url(../images/logomain.png) no-repeat left;
 }
 nav#main{
  width: 80%;
@@ -298,8 +298,8 @@ button.css3button {
 div.emailshow{
     background-color: rgba(255,255,255,1);
     display:block;
-    width: 99%;
-    padding: 5px;
+    width: 98%;
+    padding: 10px;
     -webkit-border-radius: 5px;
     -moz-border-radius: 5px;
     border-radius: 5px;
@@ -331,7 +331,7 @@ margin-top: 20px;
 -webkit-border-radius: 5px;
 -moz-border-radius: 5px;
 border-radius: 5px;
-background: #B5E5EF url(/mgr/application/views/images/alert_info.png) no-repeat;
+background: #B5E5EF url(../images/alert_info.png) no-repeat;
 background-position: 10px 10px;
 border: 1px solid #77BACE;
 color: #082B33;
@@ -349,7 +349,7 @@ margin-top: 20px;
 -webkit-border-radius: 5px;
 -moz-border-radius: 5px;
 border-radius: 5px;
-background: #F5F3BA url(/mgr/application/views/images/alert_warning.png) no-repeat;
+background: #F5F3BA url(../images/alert_warning.png) no-repeat;
 background-position: 10px 10px;
 border: 1px solid #C7A20D;
 color: #796616;
@@ -366,7 +366,7 @@ margin-top: 20px;
 -webkit-border-radius: 5px;
 -moz-border-radius: 5px;
 border-radius: 5px;
-background: #F3D9D9 url(/mgr/application/views/images/alert_error.png) no-repeat;
+background: #F3D9D9 url(../images/alert_error.png) no-repeat;
 background-position: 10px 10px;
 border: 1px solid #D20009;
 color: #7B040F;
@@ -383,7 +383,7 @@ margin-top: 20px;
 -webkit-border-radius: 5px;
 -moz-border-radius: 5px;
 border-radius: 5px;
-background: #E2F6C5 url(/mgr/application/views/images/alert_success.png) no-repeat;
+background: #E2F6C5 url(../images/alert_success.png) no-repeat;
 background-position: 10px 10px;
 border: 1px solid #79C20D;
 color: #32510F;

@@ -21,7 +21,7 @@
 
                      <!-- Begin Navigation -->
              <nav id="welcome">
-                    <?php require_once('/application/views/menu.php'); ?>
+                    <?php require_once('application/views/menu.php'); ?>
 
                </nav>
             <!-- End navigation -->

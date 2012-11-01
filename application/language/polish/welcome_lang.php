@@ -19,6 +19,8 @@ $lang['recipment']          ="Adresat";
 $lang['attachments']        ="Załączniki";
 $lang['noattachments']      ="Brak załączników";
 $lang['signature']          ="Podpis";
+$lang['emailshowerror']     ="Problem z wyświetleniem Emaila! Skontaktuj się z administratorem, jeśli ponownie zobaczysz tą wiadomość!";
+$lang['reply']              ="Odpowiedz";
 
 //Settings
 $lang['smtpserv']           ="Serwer SMTP";

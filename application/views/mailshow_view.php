@@ -21,7 +21,7 @@
     <body>
         <div id="wrapper2">
             <section id="head">
-                <header id="main"></header><nav id="main"><?php require_once('/application/views/menu.php'); ?></nav>
+                <header id="main"></header><nav id="main"><?php require_once('application/views/menu.php'); ?></nav>
             </section>
                 <section id="contentbg">
                     <article id="main">
@@ -30,7 +30,13 @@
                                 echo '<h4 class="alert_error">'.lang('badmailid').'</h4>';
                             }else{ 
 
-                                echo'<div class="emailshow"><h4 class="subject"><span class="bold">'.lang("subject").': </span>'.$email['subject']."<br />".
+                                echo'<div class="emailshow">
+                                <form action="'.base_url('/write/reply').'" method="post">
+                                    
+                                    <input class="button-link-left" type="submit" value="'.lang('reply').'" />
+                                </form>
+                                <input class="button-link-left" type="submit" value="'.lang('delete').'" /><br />    
+                                <h4 class="subject"><span class="bold">'.lang("subject").': </span>'.$email['subject']."<br />".
                                 '<span class="bold">'.lang('from').': </span>'.$email['sender']."<br />".
                                 '<span class="bold">'.lang("recipment").': </span>'.$email['recipient']."<br />". 
                                 '<span class="bold">'.lang("date").': </span>'.date('d-m-Y G:i',$email['date'])."<br />".
@@ -55,14 +61,17 @@
                                     foreach ($email['attachments'] as $attachments)
                                         echo$attachments.", ";                           
                                         }else echo lang('noattachments');
-                                echo"</h4><br /></div>";
+                                echo'</h4><br />
+                                <input class="button-link-left" type="submit" value="'.lang('reply').'" />
+                                <input class="button-link-left" type="submit" value="'.lang('delete').'" /> 
+                                </div>';
                             }
 
                             ?>
                      
                     </article>
                     <aside id="main">
-                        <?php require_once('/application/views/menu_mail.php'); ?>
+                        <?php require_once('application/views/menu_mail.php'); ?>
                     </aside>
                     <footer id="main"><?php echo lang("global_footer") ?></footer>
                 </section>

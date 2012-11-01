@@ -218,7 +218,7 @@ float:right;
 .leftmenu li a{
     display: block;
     height: 25px;
-    width: 150px;
+    width: 149px;
     color: #d7eafe;
     font-weight: bold;
     
@@ -226,11 +226,11 @@ float:right;
 .leftmenu li a:before{
     padding-right: 5px;
     float: left;
-    content:  url('/mgr/application/views/images/unread2.png');
+    content:  url('../images/unread2.png');
 }
 .leftmenu li a:hover:before{
     padding-right: 5px;
-    content: url('/mgr/application/views/images/unread.png');
+    content: url('../images/unread.png');
 }
 .leftmenu li a:hover{
     color: #faa76b;

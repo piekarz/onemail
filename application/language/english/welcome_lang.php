@@ -19,6 +19,8 @@ $lang['recipment']          ="Recipment";
 $lang['attachments']        ="Attachments";
 $lang['noattachments']      ="No attachments";
 $lang['signature']          ="Signature";
+$lang['emailshowerror']     ="Cannot show email! Contact with administrator when you saw this message again!";
+$lang['reply']              ="Reply";
 
 //Settings
 $lang['smtpserv']           ="SMTP Server";

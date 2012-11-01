@@ -1,15 +1,12 @@
 $(document).ready(function() {
   
-//$("select.emaillist").change(function() {
+//$("select.emaillist").click(function() {
 //    
-//    $("option.emaillist:selected").each(function () {
+//    $("option.emaillist:selected").first(function () {
 //        
 //        $.post(
-//                "/mgr/ajaxactions/post_ajax", 
-//                { email: $(this).text() },
-//                function(data){
-//                    alert("Hello"); 
-//                }, 
+//                "./ajaxactions/post_ajax", 
+//                { email: 'pppiekarz@wp.pl' },
 //                "json");
 //
 //                    
