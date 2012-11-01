@@ -29,7 +29,7 @@
                                 if(true==$selectedemail){ ?>
                             <form method="post" action="<?php echo base_url('write/send'); ?>">
                                 <table class="write">
-                                    <tr><td><?php echo lang('from'); ?>:</td><td><?php echo $email->memail;  ?></td></tr>
+                                    <tr><td><?php echo lang('from'); ?>:</td><td><input type="hidden" name="from" value="<?php echo$this->session->userdata("selectedemail"); ?>"/><?php echo $email->memail;  ?></td></tr>
                                     <tr><td><?php echo lang('signature');?>:</td><td><input class="inputwrite" type="text" name="signature"/></td></tr>
                                     <tr><td><?php echo lang('recipment');?>:</td><td><input class="inputwrite" type="text" name="recipment"/></td></tr>
                                     <tr><td><?php echo lang('subject');?>:</td><td><input class="inputwrite" type="text" name="subject"/></td></tr>

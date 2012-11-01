@@ -39,7 +39,7 @@ class Write extends CI_Controller {
                 
                  //get email and decrypt password
                         $emailModel = new Email_model();
-                        $email = $emailModel->get_email_where(array('memail'=>$this->session->userdata('selectedemail')));
+                        $email = $emailModel->get_email_where(array('memail'=>$_POST['from']));
                         $userModel = new User_model();
                         $user = $userModel->get_user_by_id($this->session->userdata('iduser'));
                         $emailRow=$email[0];
@@ -67,5 +67,6 @@ class Write extends CI_Controller {
                 
             }else redirect(base_url('write'));
         }
+        
 }
 

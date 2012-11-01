@@ -41,5 +41,15 @@ $(this).parent().next('.droptableshow').toggle('100');
 return false;
  
 });
+
+//Hide/show for reply
+$('.reply').hide();
+$('.button-link-left').click(function(){
+    $('.reply').toggle('100');
+    $('.replybody').focus();
+});
+
+//expand textarea dynamicly
 $("textarea.writebody").TextAreaExpander();
+$("textarea.replybody").TextAreaExpander();
 });

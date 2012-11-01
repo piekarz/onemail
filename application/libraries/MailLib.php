@@ -170,6 +170,8 @@ class MailLib  {
     private function getUnread($header){
         if($header->Unseen == 'U')
             return true;
+        if($header->Recent == 'N')
+            return true;
         return false;
     }
     /**

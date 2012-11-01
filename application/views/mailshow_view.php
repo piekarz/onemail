@@ -17,7 +17,8 @@
         <script src="<?php echo base_url("application/views/js/jquery.js");?>" type="text/javascript"></script>
         <script src="<?php echo base_url("application/views/js/iframesize.js");?>" type="text/javascript"></script>
         <script src="<?php echo base_url("application/views/js/jquery-main.js");?>" type="text/javascript"></script>
-     </head>
+        <script src="<?php echo base_url("application/views/js/jquery.textareaexpander.js");?>" type="text/javascript"></script>
+    </head>
     <body>
         <div id="wrapper2">
             <section id="head">
@@ -31,11 +32,21 @@
                             }else{ 
 
                                 echo'<div class="emailshow">
-                                <form action="'.base_url('/write/reply').'" method="post">
-                                    
                                     <input class="button-link-left" type="submit" value="'.lang('reply').'" />
-                                </form>
-                                <input class="button-link-left" type="submit" value="'.lang('delete').'" /><br />    
+                                    <input class="button-link-left" type="submit" value="'.lang('delete').'" /><br />    
+                                
+                                        <form method="post" action="'.base_url('write/send').'">
+                                            <table class="reply">
+                                                <tr><td>'.lang('from').':</td><td><input type="hidden" name="from" value="'.$this->session->userdata("selectedemail").'"/>'.$this->session->userdata("selectedemail").'</td></tr>
+                                                <tr><td>'.lang('signature').':</td><td><input class="inputwrite" type="text" name="signature"/></td></tr>
+                                                <tr><td>'.lang('recipment').':</td><td><input class="inputwrite" type="text" name="recipment" value="'.$email['sender'].'" /></td></tr>
+                                                <tr><td>'.lang('subject').':</td><td><input class="inputwrite" type="text" name="subject" value="RE: '.$email['subject'].'" /></td></tr>
+                                                <tr><td colspan="2" >bbcode</td></tr>
+                                                <tr><td colspan="2"><textarea type="text" class="replybody" name="body"></textarea></td></tr>
+                                                <tr><td><input class="button-link" type="submit" name="send" value="'.lang('send').'"/></td><td></td></tr>
+                                            </table>
+                                        </form>
+
                                 <h4 class="subject"><span class="bold">'.lang("subject").': </span>'.$email['subject']."<br />".
                                 '<span class="bold">'.lang('from').': </span>'.$email['sender']."<br />".
                                 '<span class="bold">'.lang("recipment").': </span>'.$email['recipient']."<br />". 

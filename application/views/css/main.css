@@ -544,7 +544,7 @@ textarea.writebody{
     min-height: 200px;
     border: #144976 1px solid;
 }
-textarea.writebody:focus{
+textarea.writebody:focus, textarea.replybody:focus{
     border: #2f90e3 1px solid;
     outline: none;
 }
@@ -561,6 +561,28 @@ textarea.writebody:focus{
     -webkit-box-shadow:  0px 0px 3px 3px rgba(0, 0, 0, 0.4);
     box-shadow:  0px 0px 3px 3px rgba(0, 0, 0, 0.5);
 }
-.write td{
+.write td, .reply td{
     padding: 5px;
+}
+
+/* REPLY CSS */
+
+.reply{
+    
+    background-color: transparent;
+    display:block;
+    width: 780px;
+    padding: 10px;
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    border-radius: 5px;
+}
+textarea.replybody{
+    padding: 5px;
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    border-radius: 5px;
+    width: 700px;
+    min-height: 100px;
+    border: #144976 1px solid;
 }
