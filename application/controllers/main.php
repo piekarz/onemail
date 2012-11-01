@@ -36,7 +36,7 @@ class Main extends CI_Controller {
                 $data['header']=lang('mailbox');
 		$this->load->view("main_view",$data);
 	}
-        public function mailbox($page=1){
+        public function mailbox($page=1,$msg=0){
             $data['mode']='mailbox';
             $data['header']=lang('mailbox');
             $data['thispage']=$page;

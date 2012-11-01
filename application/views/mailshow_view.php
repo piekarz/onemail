@@ -32,9 +32,14 @@
                             }else{ 
 
                                 echo'<div class="emailshow">
-                                    <input class="button-link-left" type="submit" value="'.lang('reply').'" />
-                                    <input class="button-link-left" type="submit" value="'.lang('delete').'" /><br />    
-                                
+                                    
+                                    <form action="'.base_url("delemail").'" method="post">
+                                        <a href="#" class="button-link2" >'.lang('reply').'</a>
+                                        <input type="hidden" name="emailid" value="'.$email['id'].'" />
+                                        <input type="hidden" name="emailinbox" value="'.$this->session->userdata("selectedemail").'" />
+                                        <input class="button-link2" type="submit" value="'.lang('delete').'" /><br />    
+                                    </form><div class="clear"></div>
+                                    
                                         <form method="post" action="'.base_url('write/send').'">
                                             <table class="reply">
                                                 <tr><td>'.lang('from').':</td><td><input type="hidden" name="from" value="'.$this->session->userdata("selectedemail").'"/>'.$this->session->userdata("selectedemail").'</td></tr>
@@ -73,8 +78,14 @@
                                         echo$attachments.", ";                           
                                         }else echo lang('noattachments');
                                 echo'</h4><br />
-                                <input class="button-link-left" type="submit" value="'.lang('reply').'" />
-                                <input class="button-link-left" type="submit" value="'.lang('delete').'" /> 
+                                
+                                    <form action="'.base_url("delemail").'" method="post">
+                                        <a href="#" class="button-link2" >'.lang('reply').'</a>
+                                        <input type="hidden" name="emailid" value="'.$email['id'].'" />
+                                        <input type="hidden" name="emailinbox" value="'.$this->session->userdata("selectedemail").'" />
+                                        <input class="button-link2" type="submit" value="'.lang('delete').'" /><br />    
+                                    </form><div class="clear"></div>
+                                    
                                 </div>';
                             }
 

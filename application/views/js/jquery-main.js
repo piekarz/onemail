@@ -44,7 +44,7 @@ return false;
 
 //Hide/show for reply
 $('.reply').hide();
-$('.button-link-left').click(function(){
+$('a.button-link2').click(function(){
     $('.reply').toggle('100');
     $('.replybody').focus();
 });

@@ -48,6 +48,11 @@ class MailLib  {
                 
             return (bool)$this->inbox;
     }
+    
+    function deleteEmail($id){
+        imap_delete($this->inbox, $id);
+    }
+    
     function close(){
         imap_close($this->inbox);
         return (bool)$this->inbox;
@@ -133,7 +138,6 @@ class MailLib  {
             throw new Exception('Cannot retrieve header');
         }
      
-
         $email = array();
         $email['id'] = $email_id;
         $email['sender'] = $this->getSender($header);
