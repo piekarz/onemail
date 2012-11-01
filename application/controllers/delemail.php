@@ -30,7 +30,7 @@ class Delemail extends CI_Controller {
                     $con = $connection->connect($emailRow->memail,$emailRow->mpassword,$emailRow->imapserv,$emailRow->portimap,$emailRow->imapssl);
                     if($con!=false)
                             $email=$connection->deleteEmail($_POST['emailid']);
-                    $connection->close();
+                    $connection->close(CL_EXPUNGE);
                     redirect(base_url('main/mailbox'));
             }
 	}

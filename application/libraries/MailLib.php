@@ -53,8 +53,10 @@ class MailLib  {
         imap_delete($this->inbox, $id);
     }
     
-    function close(){
+    function close($flag=''){
+        if ($flag=='')
         imap_close($this->inbox);
+        else imap_close($this->inbox,$flag);
         return (bool)$this->inbox;
     }
     
